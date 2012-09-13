@@ -11,6 +11,7 @@ gem 'exception_notification'
 gem 'validates_email_format_of'
 gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre'
+gem 'paperclip', '~> 3.0'
 
 
 # Gems used only for assets and not required
