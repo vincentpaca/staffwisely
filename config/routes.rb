@@ -5,9 +5,7 @@ Staffwisely::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations" }
 
-  resource :dashboard
-
-  namespace :dashboard do
+  namespace :app do
     resource :company
   end
 
