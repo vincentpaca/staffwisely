@@ -2,6 +2,6 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_inactive_sign_up_path_for(resource)
-    #path here
+    new_app_company_path
   end
 end
