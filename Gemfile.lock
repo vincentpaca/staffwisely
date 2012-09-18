@@ -74,11 +74,6 @@ GEM
       actionmailer (>= 3.0.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    factory_girl (3.5.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (3.5.0)
-      factory_girl (~> 3.5.0)
-      railties (>= 3.0.0)
     fastercsv (1.5.5)
     ffi (1.1.1)
     formtastic (2.1.1)
@@ -134,10 +129,9 @@ GEM
     mysql2 (0.3.11)
     nokogiri (1.5.5)
     orm_adapter (0.4.0)
-    paperclip (3.2.0)
-      activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
+    paperclip (2.7.0)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
       mime-types
     polyamorous (0.5.0)
@@ -235,14 +229,13 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   exception_notification
-  factory_girl_rails (~> 3.0)
   guard-rspec
   haml-rails
   jquery-rails
   meta_search (>= 1.1.0.pre)
   mixpanel
   mysql2
-  paperclip (~> 3.0)
+  paperclip (~> 2.7)
   rails (= 3.2.8)
   rspec-rails (~> 2.0)
   sass
