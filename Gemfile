@@ -26,7 +26,6 @@ end
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
-  gem 'factory_girl_rails', '~> 3.0'
   gem 'shoulda-matchers'
   gem 'guard-rspec'
   gem 'simplecov', '>= 0.4.0', :require => false
