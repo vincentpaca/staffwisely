@@ -61,5 +61,8 @@ module Staffwisely
 
     # Dont load DB when precompiling
     config.assets.initialize_on_precompile = false
+    
+    # Fonts
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
   end
 end
