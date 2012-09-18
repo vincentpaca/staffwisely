@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   end
 
   def notify_me
-    early_adaptor = EarlyAdaptor.new(params[:email])
+    early_adaptor = EarlyAdaptor.new(:email => params[:email])
 
     response = { :success => false }.to_json
     if early_adaptor.save
