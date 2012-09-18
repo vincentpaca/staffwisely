@@ -10,6 +10,8 @@ Staffwisely::Application.routes.draw do
     resource :company
   end
 
+  post :notify_me, :controller => :home, :action => :notify_me
+
   root :to => "home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
