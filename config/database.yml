@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: staffwisely_production
   pool: 5
-  username: root
-  password:
+  username: staffwly
+  password: s8dorimi38
   socket: /var/run/mysqld/mysqld.sock
