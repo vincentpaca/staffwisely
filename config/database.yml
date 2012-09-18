@@ -35,8 +35,8 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: staffwisely_production
+  database: staffwly_production
   pool: 5
-  username: staffwly
+  username: staffwly_user
   password: s8dorimi38
-  socket: /var/run/mysqld/mysqld.sock
+  socket: /tmp/mysql.sock
