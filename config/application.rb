@@ -61,7 +61,10 @@ module Staffwisely
 
     # Dont load DB when precompiling
     config.assets.initialize_on_precompile = false
-    
+
+    # Active Admin
+    config.assets.precompile += %w( active_admin.js active_admin.css.scss )
+
     # Fonts
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
   end
