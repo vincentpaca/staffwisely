@@ -8,6 +8,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def disallow_access
-    redirect_to root_url
+    redirect_to root_url if Rails.env.production?
   end
 end
