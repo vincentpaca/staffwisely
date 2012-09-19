@@ -11,6 +11,9 @@
   %div{ :style => "text-align: center;" }
     .tag#notification-text Signup for our beta release
 
+    .loader{ :style => "display: none; " }
+      = image_tag("ajax-loader.gif")
+
     .input-wrapper
       .notification-tip.error{ :style => "display: none;" }
         .tail
