@@ -65,9 +65,22 @@ Staffwisely::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
-  # Action mailer
-  config.action_mailer.default_url_options = { :host => "www.staffwisely.com" }
+  # Mailer
+  config.action_mailer.default_url_options = { :host => 'staffwisely.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'staffwisely.com',
+    :user_name => 'no-reply@staffwisely.com',
+    :password => 'staffwisely123',
+    :authentication => 'plain',
+    :enable_starttls_auto => true
+  }
 
   # Active Admin
   config.assets.precompile += %w[active_admin.css active_admin.js]
+  
+  # New manifest files for assets
+  config.assets.precompile += %w( application-all.css application-control.css application-website.css application-login.css )
 end
