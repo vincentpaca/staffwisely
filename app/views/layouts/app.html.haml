@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title Staffwisely
+    = stylesheet_link_tag "application-all", :media => "all"
+    = stylesheet_link_tag "application-website", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = ga_js if Rails.env.production?
+    
+  %body

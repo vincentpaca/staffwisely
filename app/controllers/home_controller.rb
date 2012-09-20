@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
+  layout 'teaser', :only => :welcome
+
   def index
+  end
+
+  def welcome
   end
 
   def notify_me

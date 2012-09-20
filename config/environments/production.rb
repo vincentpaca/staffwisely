@@ -82,5 +82,5 @@ Staffwisely::Application.configure do
   config.assets.precompile += %w[active_admin.css active_admin.js]
   
   # New manifest files for assets
-  config.assets.precompile += %w( application-all.css application-control.css application-website.css application-login.css )
+  config.assets.precompile += %w( application-all.css application-teaser.css application-website.css )
 end

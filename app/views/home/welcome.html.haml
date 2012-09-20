@@ -1,0 +1,27 @@
+.logo staffwisely
+
+.white-cover
+  %h1
+    Get Revenue From Your Bench
+  %h2
+    Staffwisely is a staff marketplace for BPO companies.
+    %br/
+    List your staff to get revenue from your bench.
+    %br/
+    Hire contractors to augment your team.
+
+  %div{ :style => "text-align: center;" }
+    .tag#notification-text Signup for our beta release
+
+    .loader{ :style => "display: none; " }
+      = image_tag("ajax-loader.gif")
+
+    .input-wrapper
+      .notification-tip.error{ :style => "display: none;" }
+        .tail
+        You must enter an email address
+
+      %input#notify-email{ :type => "text", :placeholder => "Enter your email address" }
+      %input#notify-me{ :type => "submit", :value => "Notify me" }
+
+    .tag Don't worry we won't spam you
