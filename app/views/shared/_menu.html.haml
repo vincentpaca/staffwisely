@@ -1,0 +1,28 @@
+.container_12
+  %a.logo{ :href => root_url } staffwisely
+    
+  %ul.menu
+    %li
+      %a How it works
+
+    %li.divide
+      %a Login
+      %ul.menu-collapse
+        = form_tag user_session_path, { :class => "login-form-tip" } do
+          %fieldset
+            = label_tag "Email"
+            = text_field_tag "user[email]"
+
+          %fieldset
+            = label_tag "Password"
+            = password_field_tag "user[password]"
+
+          %fieldset.a-right
+            %span.inline.small
+              %a= link_to "Forgot your password?", new_password_path("user")
+
+            %button Login
+
+
+    %li.active
+      = link_to "Signup", "/users/sign_up", :class => "signup"

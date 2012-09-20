@@ -9,3 +9,9 @@
     = ga_js if Rails.env.production?
     
   %body
+    .header
+      = render "shared/menu"
+
+    = yield
+
+    .footer
