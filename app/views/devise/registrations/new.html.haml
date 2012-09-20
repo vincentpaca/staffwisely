@@ -1,28 +1,43 @@
-%h2 Sign up
-
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email
+.login-wrapper
+  .breadcrumbs-static
     
-  %div
-    = f.label :full_name
-    %br/
-    = f.text_field :full_name
-    
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password
-  
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  
-  %div= f.submit "Sign up"
+    .bc-step
+      %span.numeric-ball.current
+        %small Step
+        1
+      Account details
 
-= render "devise/shared/links"
+    .bc-step
+      %span.numeric-ball
+        %small Step
+        2
+      Company details
+
+  .login-header Create an account
+
+
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    
+    .login-body  
+      %fieldset
+        = f.label "Company email"
+        = f.text_field :email
+    
+      %fieldset
+        = f.label :full_name
+        = f.text_field :full_name
+    
+      %fieldset
+        = f.label :password
+        = f.password_field :password
+  
+      %fieldset
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+
+    .login-footer
+      %span.inline-link
+        = link_to "Already have an account?", "/users/sign_in"
+
+      = f.submit "Next Step"
