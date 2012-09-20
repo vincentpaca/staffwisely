@@ -20,3 +20,23 @@ $(document).on('click', '#notify-me', function(){
     }
   });
 });
+
+$(document).on('click', '.menu > li > a', function(e){
+  $(this).parent().toggleClass('active');
+});
+
+$(document).on('click', '#people-bench', function(e){
+  $('.slide-wrapper.bench').show();
+  $('.slide-wrapper.hire').hide();
+  $(this).addClass('active');
+  $('#need-contractor').removeClass('active');
+});
+
+$(document).on('click', '#need-contractor', function(e){
+  $('.slide-wrapper.bench').hide();
+  $('.slide-wrapper.hire').show();
+  $(this).addClass('active');
+  $('#people-bench').removeClass('active');
+});
+
+

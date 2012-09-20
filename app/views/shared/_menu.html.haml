@@ -2,7 +2,7 @@
   %a.logo{ :href => root_url } staffwisely
     
   %ul.menu
-    %li
+    %li{ :class => active?("/how_it_works") }
       %a How it works
 
     %li.divide
@@ -24,5 +24,5 @@
             %button Login
 
 
-    %li.active
+    %li{ :class => active?("/users/sign_up") }
       = link_to "Signup", "/users/sign_up", :class => "signup"
