@@ -1,4 +1,5 @@
 class AppController < ApplicationController
+  layout 'app'
   before_filter :disallow_access
 
   def show
