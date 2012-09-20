@@ -9,15 +9,29 @@ a{
     cursor: pointer;
     outline: none;
 }
-input,textarea, select, textarea{
+input,textarea, select{
     outline:none;
     color:#57646c;
 }
 select{
     border:1px solid #d1d1d1;
     box-shadow: none;
-    padding:3px;
+    padding:7px;
+    border-radius: 3px;
+    font-size:14px;
 }
+input[type=text], input[type=password], textarea{
+    border-radius: 3px;
+    padding:7px;
+    border:1px solid #d1d1d1;
+    font-size:14px;
+    width: auto;
+    min-width: auto;
+}
+input[type=text]:focus, input[type=password]:focus, textarea:focus{
+    box-shadow:0 2px 3px #f1f1f1 inset;
+}
+
 .header{
   background: #e2f0f7;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e2f0f7', endColorstr='#d6e3eb'); 
@@ -408,8 +422,8 @@ a.cta-list-staff{
 .search-box-tools .inline:last-child{
     margin-right: 0;
 }
-.search-box-tools.bordered{
-    border-bottom:1px solid #dedede;
+.bordered{
+    border-bottom:1px solid #e1e1e1;
 }
 .small{
     font-size:12px;
@@ -580,11 +594,36 @@ a.list-a-staff:active, .login-form-tip input[type=submit]:active{
 .a-right{
     text-align: right;
 }
+.login-form-tip{
+    padding:10px 15px;
+}
+.login-form-tip label{
+    font-size:12px;
+    color:#374f5e;
+    text-shadow: 0 1px 0 #D6EAF4;
+}
+.login-form-tip fieldset{
+    margin-bottom:5px;
+    display: block;
+}
+.login-form-tip input[type=text], .login-form-tip input[type=password]{
+    padding:7px;
+    border:none;
+    width:200px;
+}
+.login-form-tip input[type=submit]{
+    margin:5px 0 0 0;
+    padding:3px 15px;
+    font-size:13px;
+    display: inline-block;
+    cursor: pointer;
+}
 .login-form-tip .inline.small{
     margin-top:10px;
     margin-right:10px;
     text-decoration: underline;
 }
+.login
 .small{
     font-size:11px;
     vertical-align: middle;
@@ -632,6 +671,9 @@ a.list-a-staff:active, .login-form-tip input[type=submit]:active{
     display: inline-block;
     margin-left:3px;
 }
+.dropdown-list{
+    vertical-align: top;
+}
 .dropdown-list > a{
     cursor: pointer;
     position: absolute;
@@ -674,4 +716,30 @@ a.list-a-staff:active, .login-form-tip input[type=submit]:active{
 }
 .dropdown-options .active{
     color:#343434;
+}
+.form{
+    padding:10px 0;
+}
+.form fieldset{
+    margin:10px 0;
+}
+.form.form-right label{
+    text-align: right;
+    font-family: 'OpenSansSemibold';
+    min-width: 170px;
+    display:inline-block;
+    margin-right:10px;
+}
+.form input[type=text]{
+    width: 250px;   
+}
+.form input[type=text].short{
+    width: 30px;   
+}
+.form input[type=text].short-2{
+    width:60px;
+}
+.form span.inline-tip{
+    font-family: 'OpenSansRegular';
+    color:#c9c9c9;
 }

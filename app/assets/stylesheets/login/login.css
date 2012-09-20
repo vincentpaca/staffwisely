@@ -37,9 +37,7 @@
     border:1px solid #d1d1d1;
     border-radius: 3px;
 }
-.login-body input[type=text]:focus, .login-body input[type=password]:focus{
-    box-shadow:0 2px 3px #f1f1f1 inset;
-}
+
 .login-footer input[type=submit]{
     background: #47c8f4;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#47c8f4', endColorstr='#29a1ec'); 
@@ -109,27 +107,3 @@
     margin-right:0;
 }
 
-.login-form-tip{
-    padding:10px 15px;
-}
-.login-form-tip label{
-    font-size:12px;
-    color:#374f5e;
-    text-shadow: 0 1px 0 #D6EAF4;
-}
-.login-form-tip fieldset{
-    margin-bottom:5px;
-    display: block;
-}
-.login-form-tip input[type=text], .login-form-tip input[type=password]{
-    padding:7px;
-    border:none;
-    width:200px;
-}
-.login-form-tip input[type=submit]{
-    margin:5px 0 0 0;
-    padding:3px 15px;
-    font-size:13px;
-    display: inline-block;
-    cursor: pointer;
-}
