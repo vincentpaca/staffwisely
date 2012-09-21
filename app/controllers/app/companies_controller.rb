@@ -1,4 +1,4 @@
-class App::CompaniesController < ApplicationController
+class App::CompaniesController < AppController
 
   def show
 

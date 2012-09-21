@@ -1,6 +1,6 @@
 class AppController < ApplicationController
   layout 'app'
-  before_filter :disallow_access
+  before_filter :disallow_access, :authenticate_user!
 
   def show
   end
