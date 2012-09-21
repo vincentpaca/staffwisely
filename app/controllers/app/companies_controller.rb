@@ -1,4 +1,5 @@
 class App::CompaniesController < AppController
+  layout 'application', :only => :new
 
   def show
 
