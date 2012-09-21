@@ -25,6 +25,10 @@
       %fieldset
         = f.label :website
         = f.text_field :website
+
+      %fieldset{ :style => "margin-top: 10px;" }
+        %label{ :style => "margin-bottom: 5px;" } Upload Company Logo
+        = f.file_field :logo
     
     .login-footer
       
