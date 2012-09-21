@@ -23,4 +23,8 @@ module ApplicationHelper
   def active?(path)
     "active" if current_page?(path)
   end
+
+  def signup_path?(path)
+    true if ["/users/sign_up", "/app/company/new"].include? path
+  end
 end

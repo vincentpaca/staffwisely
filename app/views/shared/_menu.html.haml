@@ -1,28 +1,29 @@
 .container_12
   %a.logo{ :href => root_url } staffwisely
-    
-  %ul.menu
-    %li{ :class => active?("/how_it_works") }
-      %a How it works
 
-    %li.divide
-      %a Login
-      %ul.menu-collapse
-        = form_tag user_session_path, { :class => "login-form-tip" } do
-          %fieldset
-            = label_tag "Email"
-            = text_field_tag "user[email]"
+  - unless signup_path?(request.fullpath)
+    %ul.menu
+      %li{ :class => active?("/how_it_works") }
+        %a How it works
 
-          %fieldset
-            = label_tag "Password"
-            = password_field_tag "user[password]"
+      %li.divide
+        %a Login
+        %ul.menu-collapse
+          = form_tag user_session_path, { :class => "login-form-tip" } do
+            %fieldset
+              = label_tag "Email"
+              = text_field_tag "user[email]"
 
-          %fieldset.a-right
-            %span.inline.small
-              %a= link_to "Forgot your password?", new_password_path("user")
+            %fieldset
+              = label_tag "Password"
+              = password_field_tag "user[password]"
 
-            %button Login
+            %fieldset.a-right
+              %span.inline.small
+                %a= link_to "Forgot your password?", new_password_path("user")
+
+              %button Login
 
 
-    %li{ :class => active?("/users/sign_up") }
-      = link_to "Signup", "/users/sign_up", :class => "signup"
+      %li{ :class => active?("/users/sign_up") }
+        = link_to "Signup", "/users/sign_up", :class => "signup"
