@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_inactive_sign_up_path_for(resource)
-    new_app_company_path
+    "/app/company/new"
   end
 
   def disallow_access
