@@ -1,0 +1,31 @@
+.login-wrapper
+  .breadcrumbs-static
+    
+    .bc-step
+      %span.numeric-ball
+        %small Step
+        1
+      Account details
+
+    .bc-step
+      %span.numeric-ball.current
+        %small Step
+        2
+      Company details
+
+  .login-header Create an account
+
+
+  = form_for app_company_path do |f|
+    .login-body  
+      %fieldset
+        = f.label "Company Name"
+        = f.text_field :company_name
+    
+      %fieldset
+        = f.label :website
+        = f.text_field :website
+    
+    .login-footer
+      
+      = f.submit "Create your account"
