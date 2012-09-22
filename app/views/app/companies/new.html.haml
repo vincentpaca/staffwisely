@@ -16,11 +16,11 @@
   .login-header Create an account
 
 
-  = form_for app_company_path do |f|
+  = form_for @company, :url => "/app/company" do |f|
     .login-body  
       %fieldset
         = f.label "Company Name"
-        = f.text_field :company_name
+        = f.text_field :name
     
       %fieldset
         = f.label :website
