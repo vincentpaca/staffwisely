@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   belongs_to :company
+
+  def attach_company(company)
+    self.update_attributes(:company => company)
+  end
 end
