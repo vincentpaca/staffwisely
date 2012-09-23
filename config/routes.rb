@@ -8,6 +8,7 @@ Staffwisely::Application.routes.draw do
   get :app, :controller => :app, :action => :show
   namespace :app do
     resource :company
+    resources :employees
   end
 
   post :notify_me, :controller => :home, :action => :notify_me
