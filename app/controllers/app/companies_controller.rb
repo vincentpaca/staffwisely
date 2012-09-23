@@ -6,7 +6,11 @@ class App::CompaniesController < AppController
   end
 
   def new
-    @company = Company.new
+    unless current_user.company
+      @company = Company.new
+    else
+      redirect_to root_url
+    end
   end
 
   def create
