@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   layout 'teaser', :only => :welcome
 
   def index
+    redirect_to "/app" if current_user
   end
 
   def welcome
