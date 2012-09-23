@@ -1,0 +1,46 @@
+.page
+  .container_12
+
+    = render "/app/shared/sidebar"
+
+    .search-results-wrapper
+      .page-inner
+        .bordered.group
+          .inline
+            %h1 List a Staff
+
+        .form.form-right
+          = form_for @employee, :url => "/app/employees" do |f|
+            %fieldset.inline
+              = f.label :full_name
+              = f.text_field :full_name
+
+            %fieldset
+              = f.label "Country"
+              = f.country_select :location, { priority: %w(PH US) }
+
+            %fieldset
+              = f.label "City"
+              = f.text_field :city
+
+            %fieldset
+              = f.label :position
+              = f.text_field :position
+
+            %fieldset
+              = f.label :category
+              = f.text_field :category
+
+            %fieldset
+              = f.label "Total work experience"
+              = f.select :experience, ["< 1", "1", "2", "3", "4", "5", "> 5"]
+              Years
+
+            %fieldset
+              = f.label :skill_level
+              = f.select :skill_level, %w[Junior Mid Expert]
+
+            %fieldset
+              = f.label :rate
+              = f.text_field :rate, :class => "short-2"
+              %span.inline-tip USD
