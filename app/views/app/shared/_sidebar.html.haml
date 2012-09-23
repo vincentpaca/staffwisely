@@ -1,0 +1,7 @@
+.sidebar
+  .skill-menu-cat.search-cat
+    %ul
+      %li= link_to "Bench", app_path, { :class => "#{ active?('/app') ? 'active' : '' }" }
+      %li= link_to "Contractors", nil, { :class => "#{ active?('/contractors') ? 'active' : '' }" }
+
+
