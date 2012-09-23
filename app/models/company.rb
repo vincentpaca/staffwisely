@@ -3,5 +3,5 @@ class Company < ActiveRecord::Base
   has_many :users
   has_many :employees
 
-  has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "230x78>" }
 end
