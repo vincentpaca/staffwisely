@@ -44,3 +44,10 @@
               = f.label :rate
               = f.text_field :rate, :class => "short-2"
               %span.inline-tip USD
+
+            %fieldset
+              = f.label :picture
+              = f.file_field :picture
+
+            %fieldset
+              = f.submit "Save Employee"

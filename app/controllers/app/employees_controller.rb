@@ -8,4 +8,16 @@ class App::EmployeesController < AppController
     @employee = Employee.new
   end
 
+  def create
+    @employee = Employee.new(params[:employee])
+    @employee.added_by = current_user
+    @employee.company = current_user.company
+
+    if @employee.save
+      redirect_to app_path, :notice => "Employee saved!"
+    else
+      render :action => "new"
+    end
+  end
+
 end
