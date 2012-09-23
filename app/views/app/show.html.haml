@@ -1,1 +1,50 @@
-App
+.page
+  .container_12
+    
+    .sidebar
+      .skill-menu-cat.search-cat
+        %ul
+          %li= link_to "Bench", app_path, { :class => "#{ active?('/app') ? 'active' : '' }" }
+          %li= link_to "Contractors", nil, { :class => "#{ active?('/contractors') ? 'active' : '' }" }
+
+
+    .search-results-wrapper
+      .page-inner
+        .group
+          = link_to "List a staff", new_app_employee_path, { :class => "list-a-staff" }
+          .company-logo
+            = image_tag current_user.company.logo
+
+        .search-box-tools.small.bordered.group
+          .inline
+            %h1 Manage your bench
+          .inline.search-pagination
+
+        .search-results
+          .staff-listing
+            - unless @employees.nil?
+              - @employees.each do |employee|
+                .staff-thumb-wrap
+                  .thumbnail
+
+                  .staff-details
+                    %ul
+                      %li.staff-name
+                        = employee.full_name
+                        = link_to "Edit", nil, { :class => "edit-link" }
+                      %li.staff-position
+                        = employee.position
+                      %li
+                        .dropdown-list
+                          %a
+                            Available
+                            %i.icon.icon-sort-down
+                          %ul.dropdown-options
+                            %li
+                              %a.active Available
+                            %li
+                              %a Not available
+
+      .search-box-tools
+        .inline.search-pagination
+          .pagination.group.small
