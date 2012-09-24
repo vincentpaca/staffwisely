@@ -6,6 +6,7 @@ class App::EmployeesController < AppController
   
   def new
     @employee = Employee.new
+    @categories = Category.all
   end
 
   def create

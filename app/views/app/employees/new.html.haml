@@ -29,7 +29,7 @@
 
             %fieldset
               = f.label :category
-              = f.text_field :category
+              = f.select :category, option_groups_from_collection_for_select(@categories, :sub_categories, :name, :id, :name)
 
             %fieldset
               = f.label "Total work experience"
