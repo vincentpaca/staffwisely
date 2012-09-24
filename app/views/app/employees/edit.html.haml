@@ -10,6 +10,5 @@
             %h1 List a Staff
 
         .form.form-right
-          = form_for @employee, :url => "/app/employees" do |f|
+          = form_for @employee, :url => "/app/employees/#{@employee.id}" do |f|
             = render :partial => 'app/employees/form', :locals => { :f => f }
-            

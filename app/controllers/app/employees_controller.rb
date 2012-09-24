@@ -21,4 +21,19 @@ class App::EmployeesController < AppController
     end
   end
 
+  def edit
+    @employee = Employee.find(params[:id])
+    @categories = Category.all
+  end
+
+  def update
+    @employee = Employee.find(params[:id])
+
+    if @employee.update_attributes(params[:employee])
+      redirect_to app_path, :notice => "Employee updated!"
+    else
+      render :action => "edit"
+    end
+  end
+
 end

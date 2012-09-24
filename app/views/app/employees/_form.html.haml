@@ -1,0 +1,50 @@
+%fieldset
+  %label Full Name
+  = f.text_field :full_name
+
+%fieldset
+  = f.label "Country"
+  = f.country_select :location, { priority: %w(PH US) }
+
+%fieldset
+  = f.label "City"
+  = f.text_field :city
+
+%fieldset
+  = f.label :position
+  = f.text_field :position
+
+%fieldset
+  = f.label :category
+  = f.select :category, option_groups_from_collection_for_select(@categories, :sub_categories, :name, :id, :name)
+
+%fieldset
+  %label Employee For
+  = f.select :tenure, ["< 1", "1", "2", "3", "4", "5", "> 5"]
+  Year(s)
+
+%fieldset
+  %label Total Work Experience
+  = f.select :experience, ["< 1", "1", "2", "3", "4", "5", "> 5"]
+  Year(s)
+
+%fieldset
+  %label Skill Level
+  = f.select :skill_level, %w[Junior Mid Expert]
+
+%fieldset
+  = f.label :rate
+  = f.text_field :rate, :class => "short-2"
+  %span.inline-tip USD
+
+%fieldset
+  %label Project Duration
+  = f.text_field :project_duration, :class => "short-2"
+  %span.inline-tip Months
+
+%fieldset
+  = f.label :picture
+  = f.file_field :picture
+
+%fieldset
+  = f.submit "Save Employee"
