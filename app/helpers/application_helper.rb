@@ -25,6 +25,6 @@ module ApplicationHelper
   end
 
   def signup_path?(path)
-    true if ["/users/sign_up", "/app/company/new"].include? path
+    true if ["/users/sign_up", "/app/company/new", "/users/sign_in"].include? path
   end
 end
