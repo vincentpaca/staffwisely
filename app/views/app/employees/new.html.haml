@@ -11,8 +11,8 @@
 
         .form.form-right
           = form_for @employee, :url => "/app/employees" do |f|
-            %fieldset.inline
-              = f.label :full_name
+            %fieldset
+              %label Full Name
               = f.text_field :full_name
 
             %fieldset
@@ -32,18 +32,28 @@
               = f.select :category, option_groups_from_collection_for_select(@categories, :sub_categories, :name, :id, :name)
 
             %fieldset
-              = f.label "Total work experience"
+              %label Employee For
               = f.select :experience, ["< 1", "1", "2", "3", "4", "5", "> 5"]
-              Years
+              Year(s)
 
             %fieldset
-              = f.label :skill_level
+              %label Total Work Experience
+              = f.select :experience, ["< 1", "1", "2", "3", "4", "5", "> 5"]
+              Year(s)
+
+            %fieldset
+              %label Skill Level
               = f.select :skill_level, %w[Junior Mid Expert]
 
             %fieldset
               = f.label :rate
               = f.text_field :rate, :class => "short-2"
               %span.inline-tip USD
+
+            %fieldset
+              %label Project Duration
+              = f.text_field :project_duration, :class => "short-2"
+              %span.inline-tip Months
 
             %fieldset
               = f.label :picture
