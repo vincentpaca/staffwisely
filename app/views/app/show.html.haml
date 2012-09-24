@@ -27,7 +27,7 @@
                     %ul
                       %li.staff-name
                         = employee.full_name
-                        = link_to "Edit", nil, { :class => "edit-link" }
+                        = link_to "Edit", edit_app_employee_path(employee), { :class => "edit-link" }
                       %li.staff-position
                         = employee.position
                       %li
