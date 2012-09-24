@@ -1,3 +1,4 @@
+@import url('fonts.css');
 body{
     font: 14px/1.6 'OpenSansRegular',Arial, sans-serif;
     color:#758a97;
@@ -11,6 +12,10 @@ a{
 input,textarea, select{
     outline:none;
     color:#57646c;
+    box-sizing: border-box;
+}
+textarea{
+    min-height: 100px;
 }
 select{
     border:1px solid #d1d1d1;
@@ -213,6 +218,8 @@ a.item-notification:hover{
     padding:50px 0 0 0;
     min-height: 300px;
     background: #3d6dbd;
+    /*background: url(../images/cover.jpg) no-repeat -200px 0;*/
+    background-size: 100%;
     color:#fff;
 }
 .slide-wrapper.hire{
@@ -344,7 +351,7 @@ a.cta-list-staff{
 .skill-category h2{
     font-size:20px;
     font-family: 'OpenSansLight';
-    margin-left:185px;
+    margin-left:240px;
 }
 .skill-list h3{
     margin:5px 0 10px;
@@ -446,9 +453,13 @@ a.cta-list-staff{
     background: #eaf2f7;
 }
 
-.search-item .thumbnail{
+.search-item .thumbnail, .staff-thumb-wrap .thumbnail{
     float:left;
+    width:80px;
+    height:80px;
+    overflow: hidden;
 }
+ 
 .search-profile{
     margin-left:100px;
 }
@@ -472,7 +483,7 @@ a.cta-list-staff{
     margin:5px 0;
     color:#f22651;
 }
-.search-profile a.action-contact{
+.search-profile a.action-contact, .send-message-btn{
     float: right;
     font-size:14px;
     font-family: 'OpenSansSemibold';
@@ -490,7 +501,7 @@ a.cta-list-staff{
     border:1px solid #2191d7;
     box-shadow:0 1px 0 #77dafd inset;
 }
-.search-profile a.action-contact:hover{
+.search-profile a.action-contact:hover, .send-message-btn:hover{
     background: #49ccf9;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#49ccf9', endColorstr='#2196dd'); 
     background: -webkit-gradient(linear, left top, left bottom, from(#49ccf9), to(#2196dd)); 
@@ -507,8 +518,14 @@ a.cta-list-staff{
     box-shadow: 0 1px 0 #f6f6f6 inset;
     cursor: default;
 }
-.search-profile a.action-contact:active{
+.search-profile a.action-contact:active, .send-message-btn:active{
     background: #35b1db;
+}
+.send-message-btn{
+    position: relative;
+    top:0;
+    right:0;
+    float:none;
 }
 .search-item{
     cursor: pointer;
@@ -564,7 +581,7 @@ a.cta-list-staff{
 .company-logo img{
     max-width:230px;
 }
-a.list-a-staff, .login-form-tip input[type=submit]{
+a.list-a-staff, .login-form-tip input[type=submit], input.main-cta{
     float:right;
     font-size:14px;
     margin-top:20px;
@@ -579,17 +596,21 @@ a.list-a-staff, .login-form-tip input[type=submit]{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#47c8f4', endColorstr='#29a1ec'); 
     background: -webkit-gradient(linear, left top, left bottom, from(#47c8f4), to(#29a1ec)); 
     background: -moz-linear-gradient(top,  #47c8f4,  #29a1ec);
+    cursor: pointer;
 }
-a.list-a-staff:hover, .login-form-tip input[type=submit]:hover{
+a.list-a-staff:hover, .login-form-tip input[type=submit]:hover, input.main-cta:hover{
     background: #49ccf9;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#49ccf9', endColorstr='#2196dd'); 
     background: -webkit-gradient(linear, left top, left bottom, from(#49ccf9), to(#2196dd)); 
     background: -moz-linear-gradient(top,  #49ccf9,  #2196dd);
 }
-a.list-a-staff:active, .login-form-tip input[type=submit]:active{
+a.list-a-staff:active, .login-form-tip input[type=submit]:active, input.main-cta:active{
     background: #35b1db;
 }
-
+input.main-cta{
+    float: none;
+    font-size:20px;
+}
 .a-right{
     text-align: right;
 }
@@ -641,9 +662,7 @@ a.list-a-staff:active, .login-form-tip input[type=submit]:active{
 .staff-thumb-wrap:hover{
     box-shadow: 0 0 10px rgba(0,0,0,.1);
 }
-.staff-thumb-wrap .thumbnail{
-    float:left;
-}
+
 .staff-details{
     float:left;
     margin-left:20px;
@@ -722,12 +741,16 @@ a.list-a-staff:active, .login-form-tip input[type=submit]:active{
 .form fieldset{
     margin:10px 0;
 }
+fieldset.block label{
+    display: block;
+}
 .form.form-right label{
     text-align: right;
     font-family: 'OpenSansSemibold';
     min-width: 170px;
     display:inline-block;
-    margin-right:10px;
+    margin-right:20px;
+    vertical-align: middle;
 }
 .form input[type=text]{
     width: 250px;   
@@ -738,7 +761,109 @@ a.list-a-staff:active, .login-form-tip input[type=submit]:active{
 .form input[type=text].short-2{
     width:60px;
 }
+.form textarea.full, .form input.full{
+    width:100%;
+}
 .form span.inline-tip{
     font-family: 'OpenSansRegular';
     color:#c9c9c9;
+}
+.input-tagging{
+    display: inline-block;
+    border-radius: 3px;
+    padding: 7px 6px;
+    border: 1px solid #D1D1D1;
+    max-width: 400px;
+}
+
+.input-tagging input[type=text]{
+    box-shadow:none;
+    border:none;
+    width: 120px;
+    padding:0;
+}
+.input-tagging .tags{
+    background: #599adc;
+    color:#fff;
+    font-size:11px;
+    font-family: 'OpenSansSemibold';
+    display: inline-block;
+    padding:2px 5px;
+    border-radius: 3px;
+    line-height: normal;
+}
+.input-tagging .tags a.close{
+    color:#fff;
+    
+}
+a.close{
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size:16px;
+    margin-left:3px;
+    width:11px;
+    height:11px;
+    position: relative;
+    top:2px;
+    line-height: 1;
+    opacity: .5;
+}
+a.close:hover{
+    opacity: .8;
+}
+.modal .close{
+    float: right;
+    font-size:22px;
+    color:#676767;
+}
+.seperate{
+    border-top:1px solid #e1e1e1;
+    margin-top:10px;
+    padding-top:10px;
+}
+.modal-overlay{
+    background: #fff;
+    display: none;
+    opacity: .7;
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:1000;
+}
+
+.modal{
+    position: absolute;
+    background: #fff;
+    width:560px;
+    z-index:1001;
+    color:#333;
+    display: none;
+    left:50%;
+    top:20%;
+    margin:0 0 0 -280px;
+    border:1px solid #e1e1e1;
+    border-radius: 3px;
+    box-shadow: 0 0 25px rgba(0,0,0,.2);
+}
+.modal-header, .modal-body, .modal-footer{
+    padding:10px;
+}
+.modal-header{
+    font-family: 'OpenSansSemibold';
+    font-size:18px;
+}
+.modal-body{
+    border-top:1px solid #e1e1e1;
+    border-bottom:1px solid #e1e1e1;
+}
+.modal-body .form{
+    padding:0;
+}
+.modal-footer{
+    background: #f5f5f5;
+}
+.modal-footer.right{
+    text-align: right;
 }
