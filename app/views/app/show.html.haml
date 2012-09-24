@@ -13,7 +13,8 @@
         .search-box-tools.small.bordered.group
           .inline
             %h1 Manage your bench
-          .inline.search-pagination
+          .inline.search-pagination.digg_pagination
+            = will_paginate @employees
 
         .search-results
           .staff-listing
@@ -43,4 +44,5 @@
 
       .search-box-tools
         .inline.search-pagination
-          .pagination.group.small
+          .pagination.group.small.digg_pagination
+            = will_paginate @employees

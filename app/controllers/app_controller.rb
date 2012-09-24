@@ -2,8 +2,7 @@ class AppController < ApplicationController
   before_filter :disallow_access, :authenticate_user!
 
   def show
-    @employees = current_user.company.employees
-    puts @employees
+    @employees = current_user.company.employees.paginate(:page => params[:page], :per_page => 6)
   end
 
   protected
