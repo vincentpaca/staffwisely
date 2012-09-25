@@ -13,6 +13,7 @@ gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre'
 gem 'paperclip', '~> 2.7'
 gem 'will_paginate', '~> 3.0'
+gem 'acts-as-taggable-on', '~> 2.3.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
