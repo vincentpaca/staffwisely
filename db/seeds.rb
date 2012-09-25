@@ -21,7 +21,6 @@ SubCategory.create(:category => category, :name => "UI Design")
 SubCategory.create(:category => category, :name => "Graphics & Illustration")
 SubCategory.create(:category => category, :name => "Animation")
 SubCategory.create(:category => category, :name => "Other")
-SubCategory.create(:category => category, :name => "Other")
 
 category = Category.create(:name => "Writing & Translation")
 SubCategory.create(:category => category, :name => "Articles")
