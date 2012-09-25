@@ -29,3 +29,58 @@
     %a#need-contractor.active Need a contractor?
   %li
     %a#people-bench Got people on bench?
+
+.container_12
+  .main-content.skill-category
+    %h2.block Find a contractor
+    
+    .skill-list-wraper.group
+      .sidebar
+        .skill-menu-cat
+          %ul
+            %li
+              %a.active#select-cat By Category
+
+      .skill-list
+        .skill-list-category-wrapper
+          .group.block
+            .grid_3
+              - category = Category.first
+              %h3
+                %a= category.name
+
+              %ul
+                - category.sub_categories.each do |sub_category|
+                  %li
+                    %a= sub_category.name
+
+            .grid_3
+              - category = Category.find(2)
+              %h3
+                %a= category.name
+
+              %ul
+                - category.sub_categories.each do |sub_category|
+                  %li
+                    %a= sub_category.name
+
+            .grid_3
+              - category = Category.find(3)
+              %h3
+                %a= category.name
+
+              %ul
+                - category.sub_categories.each do |sub_category|
+                  %li
+                    %a= sub_category.name
+
+          .group-block
+            .grid_3
+              - category = Category.find(4)
+              %h3
+                %a= category.name
+
+              %ul
+                - category.sub_categories.each do |sub_category|
+                  %li
+                    %a= sub_category.name
