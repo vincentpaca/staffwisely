@@ -7,6 +7,7 @@ class App::EmployeesController < AppController
   def new
     @employee = Employee.new
     @categories = Category.all
+    @continents = Continent.all
   end
 
   def create
@@ -24,6 +25,7 @@ class App::EmployeesController < AppController
   def edit
     @employee = Employee.find(params[:id])
     @categories = Category.all
+    @continents = Continent.all
   end
 
   def update

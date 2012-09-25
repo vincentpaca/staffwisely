@@ -4,7 +4,7 @@
 
 %fieldset
   = f.label "Country"
-  = f.country_select :location, { priority: %w(PH US) }
+  = f.select :country, option_groups_from_collection_for_select(@continents, :countries, :name, :id, :name)
 
 %fieldset
   = f.label "City"
