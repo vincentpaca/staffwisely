@@ -345,8 +345,14 @@ a.cta-list-staff{
     display: inline-block;
     width:713px;
 }
+.search-results{
+    margin-top:20px;
+}
 .search-results-wrapper{
     min-height: 300px;
+}
+.search-results-wrapper.full{
+    width:100%;
 }
 .skill-category h2{
     font-size:20px;
@@ -438,17 +444,14 @@ a.cta-list-staff{
     display: inline-block;
 }
     
-.pagination li{
+.pagination a{
     display: inline-block;
-}
-.pagination li a{
-    display: block;
     padding:5px 10px;
 }
-.pagination li a:hover{
+.pagination  a:hover{
     background: #eaf2f7;
 }
-.pagination li.active a{
+.pagination  a.active{
     color:#646464;
     background: #eaf2f7;
 }
@@ -572,7 +575,6 @@ a.cta-list-staff{
     text-decoration: underline;
 }
 .company-logo{
-    border:1px solid #e1e1e1;
     display:inline-block;
     float:left;
     width:230px;
@@ -609,7 +611,6 @@ a.list-a-staff:active, .login-form-tip input[type=submit]:active, input.main-cta
 }
 input.main-cta{
     float: none;
-    font-size:20px;
 }
 .a-right{
     text-align: right;
@@ -866,4 +867,49 @@ a.close:hover{
 }
 .modal-footer.right{
     text-align: right;
+}
+.company-details{
+    margin-bottom:10px;
+}
+.msg-count{
+    background: #76a3d4;
+    display: inline-block;
+    font-size:11px;
+    font-family: 'OpenSansSemibold';
+    padding:1px 5px;
+    color:#fff;
+    border-radius: 3px;
+    
+}
+a.message-item{
+    display: block;
+    border-bottom: 1px solid #D9E5F2;
+    padding:10px;
+}
+.message-details{
+    color:#787878;
+    font-size:13px;
+    margin-left:10px;
+    float:left;
+}
+.message-date{
+    float: right;
+    color:#999;
+    font-size:11px;
+}
+.message-item:hover{
+    background: #f4f8fa;
+}
+.message-details .message-subj{
+    font-family: 'OpenSansbold';
+    color:#333;
+    font-size:16px;
+}
+.message-details .message-sender{
+    margin-top:5px;
+    font-size:12px;
+    color:#3D6DBD;
+}
+.message-item.read .message-subj{
+    font-family: 'OpenSansRegular';
 }
