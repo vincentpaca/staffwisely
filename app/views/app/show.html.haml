@@ -33,13 +33,15 @@
                         .dropdown-list
                           %a
                             %span{ :id => "employee-availability-#{employee.id}" } 
-                              = employee.available ? "Available" : "Not available"
+                              = employee.availability
                             %i.icon.icon-sort-down
                           %ul.dropdown-options
-                            %li{ "available" => "true", "employee_id" => employee.id }
+                            %li{ "availability" => "Available", "employee_id" => employee.id }
                               %a Available
-                            %li{ "available" => "false", "employee_id" => employee.id }
+                            %li{ "availability" => "Not Available", "employee_id" => employee.id }
                               %a Not available
+                            %li{ "availability" => "Hired", "employee_id" => employee.id }
+                              %a Hired
 
       .search-box-tools
         .inline.search-pagination

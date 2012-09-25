@@ -40,10 +40,9 @@ class App::EmployeesController < AppController
 
   def update_availability
     @employee = Employee.find(params[:employee_id])
-    availability = params[:available].eql?("true") ? true : false
 
     respond_to do |format|
-      if @employee.update_attributes(:available => availability)
+      if @employee.update_attributes(:availability => params[:availability])
         format.json{ render :json => { :success => true } }
       else
         format.json{ render :json => { :success => false } }

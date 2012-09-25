@@ -5,16 +5,12 @@ $(document).on('click', '.dropdown-list > a', function(e){
 
 $(document).on('click', '.dropdown-options > li', function(e){
   e.preventDefault();
-  var avail = $(this).attr('available');
+  var avail = $(this).attr('availability');
   var emp = $(this).attr('employee_id');
   var div = $(this);
-  $.post('/app/employees/' + emp + '/update_availability.json',  { available: avail, employee_id: emp }, function(data){
+  $.post('/app/employees/' + emp + '/update_availability.json',  { availability: avail, employee_id: emp }, function(data){
     if(data.success){
-      var text = "Available";
-      if (avail == "false"){
-        text = "Not available";
-      }
-      $('#employee-availability-' + emp).html(text);
+      $('#employee-availability-' + emp).html(avail);
       $('#employee-availability-' + emp).parents('.dropdown-list > a').next().slideToggle(200);
     }else{
       alert("Unable to update employee");
