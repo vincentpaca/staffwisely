@@ -4,7 +4,7 @@
 
 %fieldset
   = f.label "Country"
-  = f.select :location, option_groups_from_collection_for_select(@continents, :countries, :name, :id, :name)
+  = f.select :location, option_groups_from_collection_for_select(@continents, :countries, :name, :id, :name, @employee.location), :include_blank => "Please select a country..."
 
 %fieldset
   = f.label "City"
@@ -15,8 +15,13 @@
   = f.text_field :position
 
 %fieldset
+  %label Skill Level
+  = f.select :skill_level, %w[Junior Mid Expert]
+
+%fieldset
+  = @employee.category
   = f.label :category
-  = f.select :category, option_groups_from_collection_for_select(@categories, :sub_categories, :name, :id, :name)
+  = f.select :category, option_groups_from_collection_for_select(@categories, :sub_categories, :name, :id, :name, @employee.category), :include_blank => "Please select a category..."
 
 %fieldset
   %label Employee For
@@ -29,13 +34,13 @@
   Year(s)
 
 %fieldset
-  %label Skill Level
-  = f.select :skill_level, %w[Junior Mid Expert]
-
-%fieldset
   = f.label :rate
   = f.text_field :rate, :class => "short-2"
   %span.inline-tip USD
+
+%fieldset
+  = f.label :skills
+  = f.text_field :skill_list, { :value => "#{ @employee.skills.nil? ? '' : @employee.skill_list }" }
 
 %fieldset
   = f.label :picture
