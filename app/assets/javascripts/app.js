@@ -1,3 +1,7 @@
+$(document).ready(function(){
+  $('#employee_skill_list').tagsInput();
+});
+
 $(document).on('click', '.dropdown-list > a', function(e){
   e.preventDefault();
   $(this).next().slideToggle(200);
