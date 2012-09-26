@@ -185,8 +185,7 @@ a.item-notification:hover{
    float:left;
    width:50px;
    height:50px;
-   border:3px solid #fff;
-   box-shadow: 0 1px 2px rgba(0,0,0,.2);
+   border:1px solid #e1e1e1;
 }
 .item-staff-photo{
     float:right;
@@ -577,11 +576,14 @@ a.cta-list-staff{
 .company-logo{
     display:inline-block;
     float:left;
-    width:230px;
+    width:100px;
+    height:100px;
     padding:15px;
+    border:1px solid #e1e1e1;
+    overflow: hidden;
 }
-.company-logo img{
-    max-width:230px;
+.message-list{
+    margin-top:20px;
 }
 a.list-a-staff, .login-form-tip input[type=submit], input.main-cta{
     float:right;
@@ -653,10 +655,10 @@ input.main-cta{
     padding:30px 0;
 }
 .staff-thumb-wrap{
-    width:302px;
+    width:312px;
     display:inline-block;
     padding:10px;
-    margin:10px;
+    margin:5px;
     border:1px solid #e1e1e1;
     border-radius: 3px;
 }
@@ -870,6 +872,11 @@ a.close:hover{
 }
 .company-details{
     margin-bottom:10px;
+    float:left;
+    margin-left:20px;
+}
+.company-details .company-name{
+    font-size:20px;
 }
 .msg-count{
     background: #76a3d4;
@@ -912,4 +919,16 @@ a.message-item{
 }
 .message-item.read .message-subj{
     font-family: 'OpenSansRegular';
+}
+.view-single-message h3{
+    font-family: 'OpenSansSemiBold';
+    font-size:20px;
+}
+.message-actions{
+    margin-top:10px;
+    border-top:1px solid #e1e1e1;
+    padding-top:10px;
+}
+a.delete-msg{
+    color: #ed4b4b;
 }
