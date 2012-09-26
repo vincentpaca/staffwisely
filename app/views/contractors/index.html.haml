@@ -12,13 +12,12 @@
         %h1 Find a contractor
 
         .search-wrapper
-          %form
-            %ul
-              %li
-                %input.search-input-skill{ :id => "seach-query", :type => "text", :placeholder => "Ruby Developer", :value => "#{ params[:q] }" }
+          %ul
+            %li
+              %input.search-input-skill{ :id => "search-query", :type => "text", :placeholder => "Ruby Developer", :value => "#{ params[:q] }" }
 
-              %li
-                %input{ :id => "search-submit", :type => "submit", :value => "Search" }
+            %li
+              %input{ :id => "search-submit", :type => "submit", :value => "Search" }
 
         .search-box-tools.small
           .inline.search-count
