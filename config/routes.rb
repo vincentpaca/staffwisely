@@ -19,11 +19,7 @@ Staffwisely::Application.routes.draw do
 
   get :welcome, :controller => :home, :action => :welcome if Rails.env.production?
 
-  if Rails.env.production?
-    root :to => "home#welcome"
-  else
-    root :to => "home#index"
-  end
+  root :to => "home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
