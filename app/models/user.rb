@@ -11,7 +11,22 @@ class User < ActiveRecord::Base
 
   belongs_to :company
 
+  validates_presence_of :full_name
+  validate :email_provider
+
   def attach_company(company)
     self.update_attributes(:company => company)
+  end
+
+  private
+
+  def email_provider
+    unless self.email.blank?
+      email_domain = self.email.split("@").last
+      email_providers = %w[@gmail.com @ymail.com @yahoo.com @hotmail.com @live.com @rocketmail.com @yahoomail.com]
+      if email_providers.any? { |s| s.include? (email_domain) }
+        errors.add(:email,  "must be your company email.")
+      end
+    end
   end
 end
