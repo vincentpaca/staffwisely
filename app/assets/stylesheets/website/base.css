@@ -227,10 +227,10 @@ a.item-notification:hover{
     color:#fff;
 }
 .slide-wrapper.hire{
-    display: block;
+    display: none;
 }
 .slide-wrapper.bench{
-    display: none;
+    display: block;
 }
 .slide-nav{
     text-align: center;

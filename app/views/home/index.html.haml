@@ -1,3 +1,15 @@
+.slide-wrapper.bench
+  .container_12
+    .heading-wrapper
+
+      %h1 Get Revenue From Your Bench
+      %h2 List your idle staff here and have other companies hire them as contractors.
+
+      %a.large-cta.cta-list-staff{ :href => "/users/sign_in" }
+        List your idle staff.
+        %strong
+          It's Free
+
 .slide-wrapper.hire
   .container_12
     .heading-wrapper
@@ -12,23 +24,12 @@
         %input{ :id => "search-query", :type => "text", :placeholder => "e.g. Ruby Developer" }
         %input{ :id => "search-submit", :type => "submit", :value => "Find a contractor" }
 
-.slide-wrapper.bench
-  .container_12
-    .heading-wrapper
-
-      %h1 Get Revenue From Your Bench
-      %h2 List your idle staff here and have other companies hire them as contractors.
-
-      %a.large-cta.cta-list-staff{ :href => "/users/sign_in" }
-        List your idle staff.
-        %strong
-          It's Free
-
 %ul.slide-nav
   %li
-    %a#need-contractor.active Need a contractor?
+    %a#people-bench.active Got people on bench?
+
   %li
-    %a#people-bench Got people on bench?
+    %a#need-contractor Need a contractor?
 
 .container_12
   .main-content.skill-category
