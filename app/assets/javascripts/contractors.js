@@ -3,6 +3,12 @@ $(document).on('click', '.action-contact', function(e){
 
   var employer = $(this).attr('employer-id');
   var employee = $(this).attr('employee-id');
+  var user = $(this).attr('current-user');
+
+  if(user == ""){
+    window.location = "/users/sign_in";
+    return false;
+  }
 
   $('.modal').attr('employer', employer);
   $('.modal').attr('employee', employee);

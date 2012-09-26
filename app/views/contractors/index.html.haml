@@ -36,8 +36,13 @@
 
               .search-profile
                 %span.c_name= employee.full_name
+                
                 = link_to employee.company.name, nil, { :class => "company", :title => "View more staff from #{employee.company}" }
-                = link_to "Contact Employer", nil, { :class => "action-contact", "employer-id" => employee.company.users.first.id, "employee-id" => employee.id, "current-user" => current_user }
+
+                - link = current_user ? "/users/sign_up" : nil
+                - current_user_id = current_user ? current_user.id : ""
+                = link_to "Contact Employer", link, { :class => "action-contact", "employer-id" => employee.company.users.first.id, "employee-id" => employee.id, "current-user" => current_user_id }
+                
                 %h2= employee.position
 
                 .search-c-details
