@@ -15,6 +15,9 @@
           %li= link_to "Company Info"
           %li= link_to "Logout", destroy_user_session_path, :method => :delete
 
+      %li{ :class => active?("/contractors") }
+        = link_to "Contractors", contractors_path
+
   - else
     - unless signup_path?(request.fullpath)
       %ul.menu
