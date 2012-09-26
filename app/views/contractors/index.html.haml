@@ -28,6 +28,7 @@
 
         .search-box-tools.small
           .inline.search-count
+            = page_entries_info @employees
           .inline.search-sort
           .inline.search-pagination
             = will_paginate @employees, :class => "pagination group"
@@ -66,3 +67,16 @@
                     .c-tags
                       - employee.skills.each do |skill|
                         %a= skill
+     
+      .search-box-tools
+        .inline.search-count
+          .reminder-post
+            - if current_user
+              Have benched employees?
+              = link_to "Post your staff", "/app/employees/new"
+            - else
+              Need contractors?
+              = link_to "Sign up!", "/users/sign_up"
+
+        .inline.search-pagination
+          = will_paginate @employees, :class => "pagination group small"
