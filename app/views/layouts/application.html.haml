@@ -7,6 +7,19 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     = ga_js if Rails.env.production?
+
+    - if flash[:notice]
+      %script{ :language => "javascript" }
+        $(document).ready(function(){
+        = fading_flash_notice
+        });
+
+    - if flash[:alert]
+      %script{ :language => "javascript" }
+        $(document).ready(function(){
+        = fading_flash_alert
+        });
+
     %link{ :href => 'http://fonts.googleapis.com/css?family=Bree+Serif', :rel => "stylesheet", :type => "text/css" }
 
   %body
@@ -14,5 +27,8 @@
       = render "shared/menu"
 
     = yield
+
+    - if alert || notice
+      .notification
 
     .footer

@@ -27,4 +27,29 @@ module ApplicationHelper
   def signup_path?(path)
     true if ["/users/sign_up", "/app/company/new", "/users/sign_in"].include? path
   end
+
+  def fading_flash_notice
+    return '' if !flash[:notice]
+    notice_id = rand.to_s.gsub(/\./, '')
+    notice = <<-EOF
+      $('.notification').append('<div id="#{notice_id}" class="flash_notice">#{ image_tag("check.png") } #{flash[:notice]}</div>');
+      $("##{notice_id}").fadeOut(5000, function(){
+        $('.notification').fadeOut(500);
+      });
+    EOF
+    notice.html_safe
+  end
+
+  def fading_flash_alert
+    return '' if !flash[:alert]
+    notice_id = rand.to_s.gsub(/\./, '')
+    notice = <<-EOF
+      $('.notification').append('<div id="#{notice_id}" class="flash_notice">#{ image_tag("warning.gif") } #{flash[:alert]}</div>');
+      $("##{notice_id}").fadeOut(5000, function(){
+        $('.notification').fadeOut(500);
+      });
+    EOF
+    notice.html_safe
+  end
+
 end
