@@ -947,3 +947,12 @@ a.delete-msg{
     font-family: "OpenSansSemiBold";
     z-index:120;
 }
+.field_with_errors{
+    display:inline-block;
+}
+.field_with_errors label{
+    color:#e65151;
+}
+.field-_with_errors input[type=text],.field_with_errors textarea{
+    border:1px solid #e65151;
+}
