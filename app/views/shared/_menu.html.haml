@@ -16,8 +16,12 @@
   - else
     - unless signup_path?(request.fullpath)
       %ul.menu
+        %li{ :class => active?("/contractors") }
+          = link_to "Contractors", contractors_path
+
         %li{ :class => active?("/how_it_works") }
           %a How it works
+
 
         %li.divide
           %a Login
