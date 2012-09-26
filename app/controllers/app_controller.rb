@@ -1,5 +1,5 @@
 class AppController < ApplicationController
-  before_filter :disallow_access, :authenticate_user!
+  before_filter :authenticate_user!
 
   def show
     unless current_user.company
@@ -9,9 +9,4 @@ class AppController < ApplicationController
     end
   end
 
-  protected
-
-  def disallow_access
-    redirect_to root_url if Rails.env.production?
-  end
 end
