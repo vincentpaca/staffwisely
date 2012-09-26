@@ -1,7 +1,12 @@
 @import url('fonts.css');
+body,html{
+     width:100%;
+    height:100%;
+}
 body{
     font: 14px/1.6 'OpenSansRegular',Arial, sans-serif;
     color:#758a97;
+   
 }
 a{
     text-decoration: none;
@@ -582,10 +587,8 @@ a.cta-list-staff{
     border:1px solid #e1e1e1;
     overflow: hidden;
 }
-.message-list{
-    margin-top:20px;
-}
-a.list-a-staff, .login-form-tip input[type=submit], input.main-cta{
+
+a.list-a-staff, .login-form-tip input[type=submit], input.main-cta, .send-message{
     float:right;
     font-size:14px;
     margin-top:20px;
@@ -602,17 +605,21 @@ a.list-a-staff, .login-form-tip input[type=submit], input.main-cta{
     background: -moz-linear-gradient(top,  #47c8f4,  #29a1ec);
     cursor: pointer;
 }
-a.list-a-staff:hover, .login-form-tip input[type=submit]:hover, input.main-cta:hover{
+a.list-a-staff:hover, .login-form-tip input[type=submit]:hover, input.main-cta:hover, .send-message:hover{
     background: #49ccf9;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#49ccf9', endColorstr='#2196dd'); 
     background: -webkit-gradient(linear, left top, left bottom, from(#49ccf9), to(#2196dd)); 
     background: -moz-linear-gradient(top,  #49ccf9,  #2196dd);
 }
-a.list-a-staff:active, .login-form-tip input[type=submit]:active, input.main-cta:active{
+a.list-a-staff:active, .login-form-tip input[type=submit]:active, input.main-cta:active, .send-message:active{
     background: #35b1db;
 }
-input.main-cta{
+input.main-cta, .send-message{
     float: none;
+}
+.send-message{
+    font-size:12px;
+    margin-top:10px;
 }
 .a-right{
     text-align: right;
@@ -673,9 +680,7 @@ input.main-cta{
 .staff-details li{
     position: relative;
 }
-.staff-details li.staff-name{
-    font-size:16px;
-}
+
 .staff-details .edit-link{
     display: none;
     font-size:12px;
@@ -685,7 +690,7 @@ input.main-cta{
 }
 .staff-details li.staff-position{
     color:#F22651;
-    font-size:18px;
+    font-size:16px;
     font-family: "OpenSansSemiBold", sans-serif;
 }
 .staff-thumb-wrap:hover .staff-details .edit-link{
@@ -771,34 +776,8 @@ fieldset.block label{
     font-family: 'OpenSansRegular';
     color:#c9c9c9;
 }
-.input-tagging{
-    display: inline-block;
-    border-radius: 3px;
-    padding: 7px 6px;
-    border: 1px solid #D1D1D1;
-    max-width: 400px;
-}
 
-.input-tagging input[type=text]{
-    box-shadow:none;
-    border:none;
-    width: 120px;
-    padding:0;
-}
-.input-tagging .tags{
-    background: #599adc;
-    color:#fff;
-    font-size:11px;
-    font-family: 'OpenSansSemibold';
-    display: inline-block;
-    padding:2px 5px;
-    border-radius: 3px;
-    line-height: normal;
-}
-.input-tagging .tags a.close{
-    color:#fff;
-    
-}
+
 a.close{
     font-weight: bold;
     font-family: Arial, sans-serif;
@@ -877,6 +856,7 @@ a.close:hover{
 }
 .company-details .company-name{
     font-size:20px;
+    font-family: 'OpenSansSemibold';
 }
 .msg-count{
     background: #76a3d4;
@@ -931,4 +911,39 @@ a.message-item{
 }
 a.delete-msg{
     color: #ed4b4b;
+    float:right;
+    font-size:12px;
+    margin-top:10px;
+}
+.profile-wrapper{
+    padding:20px;
+    border:1px solid #e1e1e1;
+    box-shadow: 0 1px 7px #e1e1e1;
+    margin-bottom:20px;
+}
+.view-single-message{
+    margin-top:10px;
+}
+.view-single-message .reply{
+    margin:20px 0;
+}
+.view-single-message textarea{
+    width:100%;
+    min-height:80px;
+}
+.notification{
+    background: #fff;
+    border-bottom:1px solid #ccc;
+    box-shadow:0 1px 5px rgba(0,0,0,.1);
+    position: fixed;
+    font-size:20px;
+    color:#777;
+    top:0;
+    right:0;
+    left:0;
+    text-align: center;
+    padding:5px;
+    box-sizing: border-box;
+    font-family: "OpenSansSemiBold";
+    z-index:120;
 }
