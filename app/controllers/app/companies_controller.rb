@@ -19,6 +19,7 @@ class App::CompaniesController < AppController
       current_user.attach_company(@company)
       redirect_to root_url
     else
+      render :action => :new
     end
   end
 
