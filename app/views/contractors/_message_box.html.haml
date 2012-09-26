@@ -1,0 +1,15 @@
+.modal
+  .modal-header
+    %a.close ×
+    Contact Employer
+
+  .modal-body
+    .form.large
+      %fieldset.block
+        %label Message
+        %textarea.full#message-text
+
+  .modal-footer.right
+    %input.send-message-btn#message-send{ :type => "submit", :value => "Send" }
+
+.modal-overlay

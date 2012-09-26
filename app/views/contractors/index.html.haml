@@ -1,3 +1,5 @@
+= render '/contractors/message_box'
+
 .page
   .container_12
   
@@ -35,7 +37,7 @@
               .search-profile
                 %span.c_name= employee.full_name
                 = link_to employee.company.name, nil, { :class => "company", :title => "View more staff from #{employee.company}" }
-                = link_to "Contact Employer", nil, { :class => "action-contact" }
+                = link_to "Contact Employer", nil, { :class => "action-contact", "employer-id" => employee.company.users.first.id, "employee-id" => employee.id, "current-user" => current_user }
                 %h2= employee.position
 
                 .search-c-details

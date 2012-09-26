@@ -1,4 +1,6 @@
 class ContractorsController < ApplicationController
+  respond_to :json, :only => :send_message
+
   def index
     employees = Employee.available
 
@@ -11,5 +13,20 @@ class ContractorsController < ApplicationController
     end
 
     @employees = employees.paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def send_message
+    if current_user
+      employee = Employee.find(params[:employee])
+      employer = User.find(params[:employer])
+
+      StaffMailer.inquiry(employer, employee, current_user)
+
+      response = { :success => true }.to_json
+      respond_with response, :location => nil
+    else
+      response = { :success => false }.to_json
+      respond_with response, :location => nil
+    end
   end
 end
