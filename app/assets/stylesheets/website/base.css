@@ -1,4 +1,3 @@
-@import url('fonts.css');
 body,html{
      width:100%;
     height:100%;
@@ -384,6 +383,17 @@ a.cta-list-staff{
 
 .page{
     margin-top:60px;
+}
+.feature{
+    background: #66cea3;
+    color:#fff;
+    padding:50px 0 120px 0;
+    font-size:18px;
+}
+.feature h1{
+    font-family: "Bree serif", serif;
+    font-size:42px;
+    font-weight: normal;
 }
 .search-cat li a{
     font-size:16px;
@@ -955,4 +965,44 @@ a.delete-msg{
 }
 .field-_with_errors input[type=text],.field_with_errors textarea{
     border:1px solid #e65151;
+}
+.page-wrapper{
+    margin-top:-80px;
+}
+.page-wrapper-inner{
+    background: #f7f7f7;
+    padding:15px;
+    border-radius: 5px;
+}
+.page-tabs{
+    margin-left:50px;
+}
+.page-tabs a{
+    margin-right: 10px;
+    display:inline-block;
+    padding:10px 20px;
+    color:#fff;
+    font-family: "Bree serif", serif;
+    font-size:18px;
+    text-shadow:0 -1px 0 rgba(0,0,0,.2);
+}
+.page-tabs a.active{
+    background: #f7f7f7;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color:#474747;
+    text-shadow: 0 1px 0 #fff;
+}
+.step-block{
+    background: #fff;
+    border-radius: 5px;
+    padding:10px;
+}
+.beta-tm{
+    position: absolute;
+    font-size:11px;
+    top:5px;
+    opacity: .8;
+    right:20px;
+    text-shadow: none;
 }
