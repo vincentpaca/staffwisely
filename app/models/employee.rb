@@ -8,7 +8,7 @@ class Employee < ActiveRecord::Base
 
   has_attached_file :picture, :styles => { :thumb => "80x80>" }
 
-  validates_presence_of :full_name, :position, :location
+  validates_presence_of :full_name, :position, :location, :category
 
   acts_as_taggable_on :skills
 
