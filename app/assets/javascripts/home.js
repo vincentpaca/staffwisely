@@ -39,4 +39,9 @@ $(document).on('click', '#need-contractor', function(e){
   $('#people-bench').removeClass('active');
 });
 
-
+$(document).on('click', '#search-submit', function(e){
+  var query = $('#search-query').val();
+  if(query != ""){
+    window.location = "/contractors?q=" + query;
+  }
+});

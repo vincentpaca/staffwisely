@@ -15,16 +15,10 @@
           %form
             %ul
               %li
-                %input.search-input-skill{ :type => "text", :placeholder => "Ruby Developer" }
-
-              %li{ :style => "margin: 0 10px;" }
-                in
+                %input.search-input-skill{ :id => "seach-query", :type => "text", :placeholder => "Ruby Developer", :value => "#{ params[:q] }" }
 
               %li
-                %input{ :type => "text", :placeholder => "Philippines" }
-
-              %li
-                %input{ :type => "submit", :value => "Search" }
+                %input{ :id => "search-submit", :type => "submit", :value => "Search" }
 
         .search-box-tools.small
           .inline.search-count
