@@ -1,0 +1,68 @@
+.page
+  .container_12
+  
+    .sidebar
+      .skill-menu-cat.search-cat
+        %ul
+          %li
+            %a.active Contractors
+
+    .search-results-wrapper
+      .search-results-inner
+        %h1 Find a contractor
+
+        .search-wrapper
+          %form
+            %ul
+              %li
+                %input.search-input-skill{ :type => "text", :placeholder => "Ruby Developer" }
+
+              %li{ :style => "margin: 0 10px;" }
+                in
+
+              %li
+                %input{ :type => "text", :value => "Philippines" }
+
+              %li
+                %input{ :type => "submit", :value => "Search" }
+
+        .search-box-tools.small
+          .inline.search-count
+          .inline.search-sort
+          .inline.search-pagination
+            = will_paginate @employees, :class => "pagination group"
+
+        .search-results
+          - @employees.each do |employee|
+            .search-item.group
+              %a.thumbnail
+                = image_tag employee.picture.url(:thumb)
+
+              .search-profile
+                %span.c_name= employee.full_name
+                = link_to employee.company.name, nil, { :class => "company", :title => "View more staff from #{employee.company}" }
+                = link_to "Contact Employe", nil, { :class => "action-contact" }
+                %h2= employee.position
+
+                .search-c-details
+                  %ul
+                    %li= "$ #{employee.rate}/hr"
+                    %li
+                      = image_tag("map-pin.png")
+                      = employee.country.name
+
+                  .search-more-details
+                    %ul
+                      %li
+                        %span Level:
+                        = employee.skill_level
+                      %li
+                        %span Tenure:
+                        = employee.tenure
+                      %li
+                        %span Years of Experience:
+                        = employee.experience
+
+                    .c-tags
+                      - employee.skills.each do |skill|
+                        %a= skill

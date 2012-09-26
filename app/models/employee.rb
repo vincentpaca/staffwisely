@@ -4,10 +4,15 @@ class Employee < ActiveRecord::Base
   :availability, :skills, :skill_list
 
   belongs_to :company
+  belongs_to :country, :foreign_key => :location
 
   has_attached_file :picture, :styles => { :thumb => "80x80>" }
 
   validates_presence_of :full_name, :position, :location
 
   acts_as_taggable_on :skills
+
+  def self.available
+    Employee.where(:availability => "Available")
+  end
 end

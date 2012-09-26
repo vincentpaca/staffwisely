@@ -13,6 +13,8 @@ Staffwisely::Application.routes.draw do
     end
   end
 
+  resources :contractors
+
   post :notify_me, :controller => :home, :action => :notify_me
 
   get :welcome, :controller => :home, :action => :welcome if Rails.env.production?
