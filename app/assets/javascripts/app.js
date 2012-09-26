@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('#employee_skill_list').tagsInput();
+  $('#tags_3').tagsInput();
 });
 
 $(document).on('click', '.dropdown-list > a', function(e){

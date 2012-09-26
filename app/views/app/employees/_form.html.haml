@@ -39,9 +39,9 @@
 
 %fieldset
   = f.label :skills
-  = f.text_field :skill_list, { :value => "#{ @employee.skills.nil? ? '' : @employee.skill_list }" }
+  = f.text_field :skill_list, { :value => "#{ @employee.skills.nil? ? '' : @employee.skill_list }", :id => "tags_3", :class => "tags" }
 
-%fieldset.separate
+%fieldset.seperate
   = f.label :picture
   = f.file_field :picture
 
