@@ -1,4 +1,5 @@
 class App::EmployeesController < AppController
+  before_filter :init_select_items
 
   def index
     redirect_to app_path
@@ -6,8 +7,6 @@ class App::EmployeesController < AppController
   
   def new
     @employee = Employee.new
-    @categories = Category.all
-    @continents = Continent.all
   end
 
   def create
@@ -18,14 +17,12 @@ class App::EmployeesController < AppController
     if @employee.save
       redirect_to app_path, :notice => "Employee saved!"
     else
-      render :action => "new"
+      render :action => :new
     end
   end
 
   def edit
     @employee = Employee.find(params[:id])
-    @categories = Category.all
-    @continents = Continent.all
   end
 
   def update
@@ -34,7 +31,7 @@ class App::EmployeesController < AppController
     if @employee.update_attributes(params[:employee])
       redirect_to app_path, :notice => "Employee updated!"
     else
-      render :action => "edit"
+      render :action => :edit
     end
   end
 
@@ -48,6 +45,13 @@ class App::EmployeesController < AppController
         format.json{ render :json => { :success => false } }
       end
     end
+  end
+
+  protected
+
+  def init_select_items
+    @continents = Continent.all
+    @categories = Category.all
   end
 
 end
