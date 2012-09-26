@@ -390,6 +390,9 @@ a.cta-list-staff{
     padding:50px 0 120px 0;
     font-size:18px;
 }
+.feature.switch{
+    background: #eea753;
+}
 .feature h1{
     font-family: "Bree serif", serif;
     font-size:42px;
@@ -545,7 +548,6 @@ a.cta-list-staff{
     float:none;
 }
 .search-item{
-    cursor: pointer;
     padding:20px 10px;
     position: relative;
     border-bottom:1px solid #d9e5f2;
@@ -971,8 +973,10 @@ a.delete-msg{
 }
 .page-wrapper-inner{
     background: #f7f7f7;
-    padding:15px;
+    padding:35px 15px 15px 15px;
     border-radius: 5px;
+    position: relative;
+    min-height: 915px;
 }
 .page-tabs{
     margin-left:50px;
@@ -996,7 +1000,75 @@ a.delete-msg{
 .step-block{
     background: #fff;
     border-radius: 5px;
-    padding:10px;
+    padding:20px;
+    width:400px;
+    border:1px solid #e1e1e1;
+    position: relative;
+}
+.step-block.left{
+    float:left;
+}
+.step-block.right{
+    float:right;
+}
+.step-ball{
+    float:left;
+    width:55px;
+    height:55px;
+    border-radius: 50%;
+    text-align: center;
+    color:#fff;
+    vertical-align: middle;
+    font-size:32px;
+    font-family: 'OpenSansLight';
+}
+.step-ball.orange{
+    background: #f4a259;
+}
+.step-ball.green{
+    background: #8bd89d;
+}
+.step-ball.blue{
+    background: #70bfdd;
+}
+.step-ball.red{
+    background: #ed7171;
+}
+.step-content{
+    float:right;
+    width:324px;
+}
+.step-content h3{
+    font-family: 'OpenSansLight';
+    font-weight: normal;
+    font-size:28px;
+}
+.dashed-lines{
+    background: url(../images/dash.png) no-repeat;
+    height:124px;
+    width:250px;
+    display:block;
+    position: absolute;
+}
+.dashed-lines.left{
+    background-position: 0 0;
+}
+.dashed-lines.right{
+    background-position: -252px 0;
+}
+
+#how-step2{
+    top:219px;
+}
+#how-step3{
+    top:320px;
+}
+#how-step4{
+    top:547px;
+}
+
+#pageContractors{
+    display: none;
 }
 .beta-tm{
     position: absolute;
