@@ -16,7 +16,7 @@ Staffwisely::Application.routes.draw do
   post "/contractors/send_message", :controller => :contractors, :action => :send_message
 
   post :notify_me, :controller => :home, :action => :notify_me
-
+  get :how_it_works, :controller => :home, :action => :how_it_works
   get :welcome, :controller => :home, :action => :welcome if Rails.env.production?
 
   root :to => "home#index"

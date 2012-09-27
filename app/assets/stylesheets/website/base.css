@@ -358,9 +358,10 @@ a.cta-list-staff{
     width:100%;
 }
 .skill-category h2{
-    font-size:20px;
-    font-family: 'OpenSansLight';
-    margin-left:240px;
+    font-size:30px;
+    font-family: 'OpenSansRegular';
+    font-weight: normal;
+    border-bottom:1px solid #e1e1e1;
 }
 .skill-list h3{
     margin:5px 0 10px;
@@ -379,6 +380,20 @@ a.cta-list-staff{
 }
 .skill-list-category-wrapper .grid_3{
     width:216px;
+}
+.main-skills-list{
+    font-size:13px;
+}
+.main-skills-list li{
+    margin:5px 0;
+}
+.main-skills-list a:hover{
+    text-decoration: underline;
+}
+.main-skills-list h3{
+    font-size:18px;
+    font-family: 'OpenSansLight';
+    font-weight: normal;
 }
 
 .page{
@@ -1044,7 +1059,7 @@ a.delete-msg{
     font-size:28px;
 }
 .dashed-lines{
-    background: url(../images/dash.png) no-repeat;
+    background: url(/assets/dash.png) no-repeat;
     height:124px;
     width:250px;
     display:block;

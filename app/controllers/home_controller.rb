@@ -8,6 +8,9 @@ class HomeController < ApplicationController
   def welcome
   end
 
+  def how_it_works
+  end
+
   def notify_me
     early_adaptor = EarlyAdaptor.new(:email => params[:email])
 

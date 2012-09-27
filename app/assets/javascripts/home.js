@@ -39,6 +39,25 @@ $(document).on('click', '#need-contractor', function(e){
   $('#people-bench').removeClass('active');
 });
 
+$(document).on('click', '#switch-contractors', function(e){
+  e.preventDefault();
+  $("#page-contractors").show();
+  $("#page-bench").hide();
+  $("#switch-bench").removeClass('active');
+  $("#switch-contractors").addClass('active');
+  $(".feature").addClass('switch');
+});
+
+$(document).on('click', '#switch-bench', function(e){
+  e.preventDefault();
+  $("#page-contractors").hide();
+  $("#page-bench").show();
+  $("#switch-bench").addClass('active');
+  $("#switch-contractors").removeClass('active');
+  $(".feature").removeClass('switch');
+});
+
+
 $(document).on('click', '#search-submit', function(e){
   var query = $('#search-query').val();
   if(query != ""){
