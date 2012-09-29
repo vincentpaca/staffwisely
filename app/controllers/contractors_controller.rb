@@ -12,7 +12,7 @@ class ContractorsController < ApplicationController
       employees = employees.where("position like ?", "%#{params[:q]}%")
     end
 
-    @employees = employees.paginate(:page => params[:page], :per_page => 10)
+    @employees = employees.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
   end
 
   def send_message
