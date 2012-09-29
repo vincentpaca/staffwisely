@@ -30,6 +30,7 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'guard-rspec'
   gem 'simplecov', '>= 0.4.0', :require => false
+  gem 'letter_opener'
 end
 
 # To use ActiveModel has_secure_password

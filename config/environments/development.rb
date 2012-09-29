@@ -40,4 +40,7 @@ Staffwisely::Application.configure do
 
   # Paperclip
   Paperclip.options[:command_path] = "/usr/bin/convert/"
+
+  # Letter Opener
+  config.action_mailer.delivery_method = :letter_opener
 end
