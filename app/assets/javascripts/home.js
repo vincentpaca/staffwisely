@@ -23,6 +23,11 @@ $(document).on('click', '#notify-me', function(){
 
 $(document).on('click', '.menu > li > a', function(e){
   $(this).parent().toggleClass('active');
+  e.stopPropagation();
+});
+
+$(document).on('click', 'html', function(e){
+  $('.menu > li > a').parent().removeClass('active');
 });
 
 $(document).on('click', '#people-bench', function(e){
