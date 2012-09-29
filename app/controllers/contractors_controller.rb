@@ -19,8 +19,9 @@ class ContractorsController < ApplicationController
     if current_user
       employee = Employee.find(params[:employee])
       employer = User.find(params[:employer])
+      message = params[:message]
 
-      StaffMailer.inquiry(employer, employee, current_user)
+      StaffMailer.inquiry(employer, employee, current_user, message).deliver
 
       response = { :success => true }.to_json
       respond_with response, :location => nil
