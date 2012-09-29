@@ -83,4 +83,7 @@ Staffwisely::Application.configure do
   
   # New manifest files for assets
   config.assets.precompile += %w( application-all.css application-teaser.css application-website.css )
+
+  # Mixpanel
+  config.middleware.use "Mixpanel::Tracker::Middleware", "bb8da3a5fe5a4d964e0d2c2d5a8cf5b2", { :insert_js_last => true, :persist => true }
 end
