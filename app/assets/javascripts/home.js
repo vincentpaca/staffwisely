@@ -21,6 +21,12 @@ $(document).on('click', '#notify-me', function(){
   });
 });
 
+$(document).ready(function(){
+  $('.menu').outside('click', function(){
+    $('.menu > li > a').parent().removeClass('active');
+  });
+});
+
 $(document).on('click', '.menu > li > a', function(e){
   $(this).parent().toggleClass('active');
 });

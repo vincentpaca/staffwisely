@@ -12,15 +12,16 @@ class ContractorsController < ApplicationController
       employees = employees.where("position like ?", "%#{params[:q]}%")
     end
 
-    @employees = employees.paginate(:page => params[:page], :per_page => 10)
+    @employees = employees.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
   end
 
   def send_message
     if current_user
       employee = Employee.find(params[:employee])
       employer = User.find(params[:employer])
+      message = params[:message]
 
-      StaffMailer.inquiry(employer, employee, current_user)
+      StaffMailer.inquiry(employer, employee, current_user, message).deliver
 
       response = { :success => true }.to_json
       respond_with response, :location => nil
