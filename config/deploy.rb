@@ -3,7 +3,7 @@ require 'mina/rails'
 require 'mina/git'
 
 set :domain, 'staffwisely.com'
-set :deploy_to, '/staffwisely'
+set :deploy_to, '/home/staffwly/staffwisely'
 set :repository, 'https://github.com/vincentpaca/staffwisely.git'
 set :branch, 'master'
 
