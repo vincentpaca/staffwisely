@@ -8,4 +8,8 @@ class Company < ActiveRecord::Base
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
   validates_presence_of :name
+
+  def unread_notifications
+    self.notifications.where(:read => false)
+  end
 end
