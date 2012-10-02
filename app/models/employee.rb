@@ -5,6 +5,7 @@ class Employee < ActiveRecord::Base
 
   belongs_to :company
   belongs_to :country, :foreign_key => :location
+  has_many :employments
 
   has_attached_file :picture, :styles => { :thumb => "80x80>" }
 

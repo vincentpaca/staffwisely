@@ -3,4 +3,8 @@ class Project < ActiveRecord::Base
 
   belongs_to :employer, :class_name => "Company"
   belongs_to :employee, :class_name => "Company"
+
+  has_many :employments
+  has_many :employees, :through => :employments
+
 end
