@@ -15,6 +15,25 @@
           %li= link_to "Company Info"
           %li= link_to "Logout", destroy_user_session_path, :method => :delete
 
+      %li
+        %a
+          Notifications
+          %span.notif-count= current_company.notifications.count if current_company.notifications.count != 0
+
+        - if current_company.notifications.count != 0
+          %ul.menu-collapse.menu-notifications
+            
+            - current_company.notifications.each do |notification|
+              %a.item-notification.group
+                .item-company-logo
+                  = image_tag current_company.logo
+
+                .item-notif-contents
+                  .item-notif-msg
+                    %span.company-name= current_company.name
+                    = notification.message
+                  %span.notif-time= "#{time_ago_in_words(notification.created_at)} ago"
+
       %li{ :class => active?("/contractors") }
         = link_to "Contractors", contractors_path
 
