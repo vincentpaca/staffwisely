@@ -4,6 +4,8 @@ class Company < ActiveRecord::Base
   has_many :users
   has_many :employees
   has_many :notifications
+  has_many :employee_projects, :class_name => "Project", :foreign_key => "employee_id"
+  has_many :employer_projects, :class_name => "Project", :foreign_key => "employer_id"
 
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
