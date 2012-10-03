@@ -8,7 +8,7 @@ class Notification < ActiveRecord::Base
 
   private
 
-  def send_email(email)
+  def notify_all_users(email)
     emails = self.company.users.collect(&:email).join(",")
     NotificationMailer.delay.notify(emails)
   end
