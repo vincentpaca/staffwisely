@@ -1,0 +1,28 @@
+.feature.blue
+  .container_12
+    %h1 Frequently Asked Questions
+    %p
+      Staffwisely is a staff marketplace for IT Outsourcing companies. List your staff and get revenue from your bench. Hire contractors to augment your team and reduce your overhead cost.
+
+.container_12
+  .page-wrapper.faq-wrapper
+    
+    .block
+      %h3
+        %strong Hiring a Contractor
+
+    - if @hiring_qs.any?
+      - @hiring_qs.each do |q|
+        .block
+          %h3= q.title
+          %p= q.description
+
+    .block
+      %h3
+        %strong Listing a Staff
+
+    - if @listing_qs.any?
+      - @listing_qs.each do |q|
+        .block
+          %h3= q.title
+          %p= q.description

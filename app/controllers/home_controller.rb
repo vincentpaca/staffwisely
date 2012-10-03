@@ -23,4 +23,9 @@ class HomeController < ApplicationController
       format.json { render :json => response }
     end
   end
+
+  def faq
+    @hiring_qs = Question.where(:faq_type => "hiring")
+    @listing_qs = Question.where(:faq_type => "listing")
+  end
 end
