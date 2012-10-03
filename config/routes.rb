@@ -10,6 +10,7 @@ Staffwisely::Application.routes.draw do
     resources :employees do
       post :update_availability
     end
+    resources :projects
   end
 
   resources :contractors
