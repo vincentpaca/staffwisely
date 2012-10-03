@@ -1,0 +1,20 @@
+.page
+  = render 'selector_wrapper'
+  
+  .panel.lt
+    .container_12
+      
+      - if @pending_projects.nil?
+        .empty.large
+          %h2 There are no projects listed
+          %p
+            Currently there are no incoming or ongoing projects.
+            = link_to "Start looking for contractors", contractors_path
+      - else
+        .notify-view-wrapper
+          %h3 Project requests
+          
+          - @pending_projects.each do |project|
+            .notify-item
+              = project.title
+              = link_to "View Project", "/app/projects/#{project.id}", :class => "btn action small notify-action"

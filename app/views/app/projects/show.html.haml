@@ -1,1 +1,54 @@
-Projects
+.page
+  = render 'selector_wrapper'
+  
+  .panel.lt
+    .container_12
+      .project-preview.group
+        .grid_8.alpha
+          %h1= @project.title
+          
+          .contractor-head
+          
+            .user-tab-wrapper
+              .user-profile-image= image_tag @project.employer.logo(:thumb)
+              .user-profile-info
+                .user-profile-name= @project.employer.name
+                .user-position= @project.employer.users.first.full_name
+                
+            .block
+              %h5.block
+                #{@project.employees.count} staff working on this project
+              
+              - if @project.employees.any?
+                - @project.employees.each do |employee|
+                  .user-tab-wrapper.small.bordered
+                    .user-profile-image= image_tag employee.picture(:thumb)
+                    .user-profile-info
+                      .user-profile-name= employee.position
+                      .user-position= employee.full_name
+                      
+          .project-description
+            %p= @project.description
+            
+        .grid_4.omega
+          .project-details-sidebar
+            .project-meta
+              %ul
+                %li
+                  Date posted:
+                  = @project.created_at.strftime("%B %d, %Y")
+                  
+                %li
+                  Time elapsed:
+                  = time_ago_in_words @project.created_at
+                  ago
+                  
+                %li
+                  Status:
+                  %strong.inactive Pending
+              
+              %div
+                %a.btn.action.accept-project Accept Project
+                %div{ :style => "text-align: center;" }
+                  %a.text-warning Decline this project
+                
