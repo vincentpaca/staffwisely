@@ -23,7 +23,7 @@ class ContractorsController < ApplicationController
     title = params[:title]
     details = params[:details]
 
-    project = Project.new(:employer_id => employer, :employee_id => employee, :title => title, :details => details)
+    project = Project.new(:employer => employer, :employee => employee, :title => title, :description => details)
     if project.save
       Employment.create(:project_id => project.id, :employee_id => staff)
       response = { :success => true }.to_json
