@@ -25,9 +25,12 @@ class ContractorsController < ApplicationController
 
     project = Project.new(:employer => employer, :employee => employee, :title => title, :description => details)
     if project.save
-      Employment.create(:project_id => project.id, :employee_id => staff)
+      Employment.save_employment(staff, project.id)
       response = { :success => true }.to_json
       respond_with response, :location => nil
+    else
+      response = { :success => false }.to_json
+      response_with response, :location => nil
     end
   end
 
