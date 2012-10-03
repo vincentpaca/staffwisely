@@ -1,0 +1,10 @@
+.container_12
+  .primary-selector-wrapper
+    %ul
+      %li{ :class => active?("/app") }
+        = link_to "Bench", app_path
+        .tooltip-tail
+
+      %li{ :class => active?("/app/projects") }
+        = link_to "Projects", app_projects_path
+        .tooltip-tail

@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 
   def index
     redirect_to "/app" if current_user
+    @categories = Category.includes(:sub_categories).all
   end
 
   def welcome
@@ -22,5 +23,10 @@ class HomeController < ApplicationController
     respond_to do |format|
       format.json { render :json => response }
     end
+  end
+
+  def faq
+    @hiring_qs = Question.where(:faq_type => "hiring")
+    @listing_qs = Question.where(:faq_type => "listing")
   end
 end

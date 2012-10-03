@@ -35,6 +35,7 @@ group :test, :development do
   gem 'simplecov', '>= 0.4.0', :require => false
   gem 'letter_opener'
   gem 'mina'
+  gem 'bullet'
 end
 
 # To use ActiveModel has_secure_password

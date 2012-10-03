@@ -69,7 +69,7 @@
     .skill-list-wraper.group
       .main-skills-list
         .group.block
-          - Category.all.each do |category|
+          - @categories.each do |category|
             %div{ :class => category.eql?(Category.first) ? "grid_3 alpha" : category.eql?(Category.last) ? "grid_3 omega" : "grid_3" }
               %h3
                 %a= category.name
