@@ -43,9 +43,9 @@ $(document).on('click', '#send-project', function(e){
     return false;
   }
 
-  var employer = $('.modal').attr('employer-id'); // Hiring Company
-  var employee = $('.modal').attr('employee-id'); // Employees Company
-  var staff = $('.modal').attr('staff-id');
+  var employer = $('.modal').attr('employer'); // Hiring Company
+  var employee = $('.modal').attr('employee'); // Employees Company
+  var staff = $('.modal').attr('staff');
 
   $.post('/contractors/send_proposal.json', { title: title, details: details, employer: employer, employee: employee, staff: staff }, function(data){
     if(data.success){
