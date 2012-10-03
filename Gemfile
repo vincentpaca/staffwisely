@@ -16,6 +16,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
+gem 'daemons'
 
 # Gems used only for assets and not required
 # in production environments by default.
