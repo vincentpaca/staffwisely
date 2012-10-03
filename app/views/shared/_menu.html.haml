@@ -44,11 +44,14 @@
           = link_to "Contractors", contractors_path
 
         %li{ :class => active?("/how_it_works") }
-          = link_to "How it works", "/how_it_works"
+          = link_to "How It Works", "/how_it_works"
+
+        %li{ :class => active?("/faq") }
+          = link_to "FAQ", "/faq"
 
 
         %li.divide
-          %a Login
+          %a Log in
           %ul.menu-collapse
             = form_tag user_session_path, { :class => "login-form-tip" } do
               %fieldset
@@ -67,4 +70,4 @@
 
 
         %li{ :class => active?("/users/sign_up") }
-          = link_to "Signup", "/users/sign_up", :class => "signup"
+          = link_to "Sign up", "/users/sign_up", :class => "signup"
