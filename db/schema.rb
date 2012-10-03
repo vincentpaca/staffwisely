@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(:version => 20121002124200) do
     t.string   "address"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.string   "logo_file_name"
     t.string   "logo_content_type"
+    t.string   "logo_file_name"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.string   "website"
