@@ -5,7 +5,7 @@ class App::ProjectsController < AppController
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.includes(:employees, :employer).find(params[:id])
   end
 
   def create
