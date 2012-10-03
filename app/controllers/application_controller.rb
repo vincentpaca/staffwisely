@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :initialize_mixpanel if Rails.env.production?
+  
+  def current_company
+    current_user.company if current_user
+  end
 
   protected
   
