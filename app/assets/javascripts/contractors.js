@@ -47,15 +47,5 @@ $(document).on('click', '#send-project', function(e){
   var employee = $('.modal').attr('employee'); // Employees Company
   var staff = $('.modal').attr('staff');
 
-  $.post('/contractors/send_proposal.json', { title: title, details: details, employer: employer, employee: employee, staff: staff }, function(data){
-    if(data.success){
-      alert("Request sent!");
-      $('.modal').fadeOut();
-      $('.modal-overlay').fadeOut();
-      $('#message-text').val("");
-    }else{
-      alert("Something went wrong while sending your message. Please try again later");
-    }
-  }, "json");
-
+  $.post('/contractors/send_proposal', { title: title, details: details, employer: employer, employee: employee, staff: staff });
 });

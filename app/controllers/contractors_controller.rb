@@ -1,6 +1,4 @@
 class ContractorsController < ApplicationController
-  respond_to :json, :only => [:send_message, :send_proposal]
-
   def index
     employees = Employee.available
 
@@ -24,13 +22,14 @@ class ContractorsController < ApplicationController
     details = params[:details]
 
     project = Project.new(:employer => employer, :employee => employee, :title => title, :description => details)
+
     if project.save
       Employment.save_employment(staff, project.id)
-      response = { :success => true }.to_json
-      redirect_to app_project_path(project), :notice => "Project successfully created."
+      flash[:notice] = "Project successfully created."
+      render :js => %(window.location.pathname='/app/projects/#{project.id}')
     else
-      response = { :success => false }.to_json
-      response_with response, :location => nil
+      flash[:error] = "Something went wrong while saving your project, please try again."
+      render :js => %(window.location.pathname='/app/contractors')
     end
   end
 
