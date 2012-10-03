@@ -1,5 +1,5 @@
 class ContractorsController < ApplicationController
-  respond_to :json, :only => :send_message
+  respond_to :json, :only => [:send_message, :send_proposal]
 
   def index
     employees = Employee.available
@@ -15,19 +15,20 @@ class ContractorsController < ApplicationController
     @employees = employees.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
   end
 
-  def send_message
-    if current_user
-      employee = Employee.find(params[:employee])
-      employer = User.find(params[:employer])
-      message = params[:message]
+  def send_proposal
+    employee = Company.find(params[:employee])
+    employer = Company.find(params[:employer])
+    staff = Employee.find(params[:staff])
+    
+    title = params[:title]
+    details = params[:details]
 
-      StaffMailer.inquiry(employer, employee, current_user, message).deliver
-
+    project = Project.new(:employer_id => employer, :employee_id => employee, :title => title, :details => details)
+    if project.save
+      Employment.create(:project_id => project.id, :employee_id => staff)
       response = { :success => true }.to_json
-      respond_with response, :location => nil
-    else
-      response = { :success => false }.to_json
       respond_with response, :location => nil
     end
   end
+
 end

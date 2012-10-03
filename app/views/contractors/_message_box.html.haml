@@ -1,15 +1,18 @@
 .modal
   .modal-header
     %a.close ×
-    Contact Employer
+    Propose a project
 
   .modal-body
     .form.large
       %fieldset.block
-        %label Message
-        %textarea.full#message-text
+        %label Project title
+        %input.full#project-title{ :type => "text" }
+      %fieldset.block
+        %label Project details
+        %textarea.full#project-details
 
   .modal-footer.right
-    %input.send-message-btn#message-send{ :type => "submit", :value => "Send" }
+    %input.send-message-btn#send-project{ :type => "submit", :value => "Send" }
 
 .modal-overlay

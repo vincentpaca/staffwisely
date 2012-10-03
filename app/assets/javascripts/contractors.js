@@ -1,17 +1,22 @@
-$(document).on('click', '.action-contact', function(e){
+$(document).on('click', '.contact-logged', function(e){
   e.preventDefault();
+
+  /**
+  * Dear future self,
+  * The variables are going to be very confusing.
+  * Deal with it.
+  * Employer will be the company hiring the employee, the currently logged in user's company
+  * Employee will be the company of the staff, since you're providing the employee
+  * Staff will be the staff involved in the project.
+  **/
 
   var employer = $(this).attr('employer-id');
   var employee = $(this).attr('employee-id');
-  var user = $(this).attr('current-user');
-
-  if(user == ""){
-    window.location = "/users/sign_in";
-    return false;
-  }
+  var staff = $(this).attr('staff-id');
 
   $('.modal').attr('employer', employer);
   $('.modal').attr('employee', employee);
+  $('.modal').attr('staff', staff);
 
   $('.modal').fadeIn();
   $('.modal-overlay').fadeIn();
@@ -24,20 +29,27 @@ $(document).on('click', '.modal .close', function(e){
   $('#message-text').val("");
 });
 
-$(document).on('click', '#message-send', function(e){
-  var message = $('#message-text').val();
+$(document).on('click', '#send-project', function(e){
+  var title = $('#project-title').val();
+  var details = $('#project-details').val();
 
-  if (message == ""){
-    alert("Message can't be blank");
+  if (title == ""){
+    alert("Title can't be blank");
     return false;
   }
 
-  var employer = $('.modal').attr('employer');
-  var employee = $('.modal').attr('employee');
+  if (details == ""){
+    alert("Details can't be blank");
+    return false;
+  }
 
-  $.post('/contractors/send_message.json', { message: message, employer: employer, employee: employee }, function(data){
+  var employer = $('.modal').attr('employer-id'); // Hiring Company
+  var employee = $('.modal').attr('employee-id'); // Employees Company
+  var staff = $('.modal').attr('staff-id');
+
+  $.post('/contractors/send_proposal.json', { title: title, details: details, employer: employer, employee: employee, staff: staff }, function(data){
     if(data.success){
-      alert("Successfully sent an email!");
+      alert("Request sent!");
       $('.modal').fadeOut();
       $('.modal-overlay').fadeOut();
       $('#message-text').val("");
@@ -45,4 +57,5 @@ $(document).on('click', '#message-send', function(e){
       alert("Something went wrong while sending your message. Please try again later");
     }
   }, "json");
+
 });

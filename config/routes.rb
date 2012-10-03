@@ -13,7 +13,7 @@ Staffwisely::Application.routes.draw do
   end
 
   resources :contractors
-  post "/contractors/send_message", :controller => :contractors, :action => :send_message
+  post "/contractors/send_proposal", :controller => :contractors, :action => :send_proposal
 
   post :notify_me, :controller => :home, :action => :notify_me
   get :how_it_works, :controller => :home, :action => :how_it_works

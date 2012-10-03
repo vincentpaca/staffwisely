@@ -39,9 +39,11 @@
                 
                 = link_to employee.company.name, nil, { :class => "company", :title => "View more staff from #{employee.company}" }
 
-                - link = current_user ? "/users/sign_up" : nil
-                - current_user_id = current_user ? current_user.id : ""
-                = link_to "Contact Employer", link, { :class => "action-contact", "employer-id" => employee.company.users.first.id, "employee-id" => employee.id, "current-user" => current_user_id }
+                - link = current_user ? "#" : "/users/sign_in"
+                = link_to "Contact Employer", link, { :class => "action-contact  #{current_user ? 'contact-logged' : 'contact-out'}",
+                  "employer-id" => current_user ? current_user.company.id : nil, 
+                  "employee-id" => employee.company.id, 
+                  "staff-id" => employee.id }
                 
                 %h2= employee.position
 
