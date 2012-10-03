@@ -27,7 +27,7 @@ class ContractorsController < ApplicationController
     if project.save
       Employment.save_employment(staff, project.id)
       response = { :success => true }.to_json
-      respond_with response, :location => nil
+      redirect_to app_project_path(project), :notice => "Project successfully created."
     else
       response = { :success => false }.to_json
       response_with response, :location => nil
