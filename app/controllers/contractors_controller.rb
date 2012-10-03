@@ -1,6 +1,6 @@
 class ContractorsController < ApplicationController
   def index
-    employees = Employee.available
+    employees = Employee.includes(:company, :country, :skills).available
 
     if params[:category]
       employees = employees.where("category = ?", params[:category])
