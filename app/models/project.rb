@@ -7,4 +7,13 @@ class Project < ActiveRecord::Base
   has_many :employments
   has_many :employees, :through => :employments
 
+  after_create :send_notification
+
+  private
+
+  def send_notification
+    Notification.create(:company => self.employee, :message => "sent you a proposal (#{self.title})", :sender => self.employer.users.first)
+  end
+  handle_asynchronously :send_notification
+
 end
