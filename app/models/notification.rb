@@ -12,5 +12,5 @@ class Notification < ActiveRecord::Base
     emails = self.company.users.collect(&:email).join(",")
     NotificationMailer.delay.notify(emails)
   end
-  handle_asynchronously :send_email, :queue => "notifications"
+  handle_asynchronously :notify_all_users, :queue => "notifications"
 end
