@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     unless self.email.blank?
       email_domain = self.email.split("@").last
       email_providers = %w[@gmail.com @ymail.com @yahoo.com @hotmail.com @live.com @rocketmail.com @yahoomail.com]
-      if email_providers.any? { |s| s.include? (email_domain) }
+      if email_providers.any? { |s| s.include?(email_domain) }
         errors.add(:email,  "must be your company email.")
       end
     end
