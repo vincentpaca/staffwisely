@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 
   def index
     redirect_to "/app" if current_user
+    @categories = Category.includes(:sub_categories).all
   end
 
   def welcome
