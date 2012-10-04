@@ -7,10 +7,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :full_name, :company
-  # attr_accessible :title, :body
 
   belongs_to :company
-  has_many :comments, :foreign_key => "sender_id"
+  has_many :comments
 
   validates_presence_of :full_name
   validate :email_provider

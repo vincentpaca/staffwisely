@@ -56,24 +56,27 @@
         %h2 Leave a comment
 
         .response-wrapper
-          %form
-            %textarea#comment
+          = form_for(@comment, :remote => true, :url => "/app/comments") do |f|
+            = f.text_area :message, { :rows => "5" }
+            = f.hidden_field :project_id, :value => @project.id
+            = f.hidden_field :user_id, :value => current_user.id
             %div
-              %input#submit-comment{ :type => "submit", :class => "btn", :value => "Post comment" }
+              = f.submit "Post comment", :class => "btn"
 
-        .block.group
+        .block.group{ :style => "border-bottom: 1px solid #e1e1e1" }
 
         - if @project.comments.any?
           - @project.comments.each do |comment|
             .comment-item
-              .comment-date= comment.created_at.strftime("%I:%M %P %B %d, %Y")
+              .comment-date= time_ago_in_words comment.created_at
+              ago
               
               .user-tab-wrapper.small
-                .user-profile-image= image_tag comment.sender.picture(:thumb)
+                .user-profile-image
 
                 .user-profile-info
-                  .user-profile-name= comment.sender.name
-                  .user-position= comment.sender.company.name
+                  .user-profile-name= comment.user.full_name
+                  .user-position= comment.user.company.name
 
               .comment-entry
                 %p= comment.message

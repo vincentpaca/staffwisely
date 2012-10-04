@@ -11,6 +11,7 @@ Staffwisely::Application.routes.draw do
       post :update_availability
     end
     resources :projects
+    resources :comments
   end
 
   resources :contractors
