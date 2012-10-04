@@ -1,6 +1,7 @@
 class App::ProjectsController < AppController
   def index
-    @pending_projects = current_company.employee_projects.merge(current_company.employer_projects)
+    @employee_projects = current_company.employee_projects
+    @employer_projects = current_company.employer_projects
   end
 
   def show
