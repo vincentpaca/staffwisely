@@ -24,7 +24,7 @@ class ContractorsController < ApplicationController
     project = Project.new(:employer => employer, :employee => employee, :title => title, :description => details)
 
     if project.save
-      Employment.save_employment(staff, project.id)
+      Employment.save_employment(staff.id, project.id)
       flash[:notice] = "Project successfully created."
       render :js => %(window.location.pathname='/app/projects/#{project.id}')
     else
