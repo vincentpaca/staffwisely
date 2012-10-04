@@ -14,7 +14,7 @@ class ContractorsController < ApplicationController
   end
 
   def send_proposal
-    project = Project.new(:employer_id => params[:employer], :employee => params[:employee], :title => params[:title], :description => params[:details])
+    project = Project.new(:employer_id => params[:employer], :employee_id => params[:employee], :title => params[:title], :description => params[:details])
 
     if project.save
       Employment.save_employment(params[:staff], project.id)
