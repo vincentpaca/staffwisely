@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   belongs_to :company
+  has_many :comments, :foreign_key => "sender_id"
 
   validates_presence_of :full_name
   validate :email_provider

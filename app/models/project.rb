@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
 
   has_many :employments
   has_many :employees, :through => :employments
+  has_many :comments
 
   after_create :send_notification
 
