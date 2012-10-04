@@ -59,10 +59,6 @@
               %h3 Scale on-demand
               %p
                 Hiring full-time employees to support a project takes a lot of time. Reinforce your core team by hiring contractors when you need them.
-            %li
-              %h3 Reduce overhead cost
-              %p
-                Hiring full-time employees is also expensive. Reduce your operational expense by hiring reliable contractors on Staffwisely.
 
     %h2.block Find a contractor
     
@@ -70,7 +66,7 @@
       .main-skills-list
         .group.block
           - @categories.each do |category|
-            %div{ :class => category.eql?(Category.first) ? "grid_3 alpha" : category.eql?(Category.last) ? "grid_3 omega" : "grid_3" }
+            %div{ :class => category.eql?(Category.first) ? "grid_3 alpha" : category.eql?(Category.last) ? "grid_3" : "grid_3" }
               %h3
                 %a= category.name
 
@@ -78,3 +74,13 @@
                 - category.sub_categories.each do |sub_category|
                   %li
                     %a{ :href => "/contractors?category=#{sub_category.id}" }= sub_category.name
+
+          .grid_3.omega
+            .announce
+              .sticker
+              %h3 Urgent Contractor Needed
+              %ul.announce-list
+                %li 1 Java Programmer
+                %li 1 Powerbuilder Developer
+
+              List your staff on Staffwisely and we'll get back to you with the details of the project.
