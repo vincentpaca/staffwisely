@@ -108,15 +108,25 @@ a.logo:hover{
 	float: left;
         
 }
+.breadcrumb li:first-child a{
+    padding-left: 30px;
+}
+.breadcrumb li.active a{
+    background: #eee;
+    text-shadow: 0 1px 0 #fff;
+    color:#000;
+}
 .breadcrumb li a {
 	color: white;
 	text-decoration: none; 
-	padding: 5px 0 5px 65px;
-	background: #319ef2;
+	padding: 5px 0 5px 55px;
+	background: #d1d1d1;
 	position: relative; 
 	display: block;
 	float: left;
         font-size:12px;
+        color:#666;
+        text-shadow: 0 1px 0 #ddd;
 }
 .breadcrumb li a:before { 
 	content: " "; 
@@ -133,6 +143,9 @@ a.logo:hover{
 	left: 100%;
 	z-index: 1; 
 }
+.breadcrumb li.active a:after {
+    border-left: 30px solid #eee;
+}
 .breadcrumb li a:after { 
 	content: " "; 
 	display: block; 
@@ -140,7 +153,7 @@ a.logo:hover{
 	height: 0;
 	border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
 	border-bottom: 50px solid transparent;
-	border-left: 30px solid #319ef2;
+	border-left: 30px solid #d1d1d1;
 	position: absolute;
 	top: 50%;
 	margin-top: -50px; 
@@ -558,6 +571,7 @@ a.cta-list-staff{
 }
 .small{
     font-size:12px;
+    vertical-align: middle;
 }
 .inline{
     display: inline-block;
@@ -867,6 +881,21 @@ input.main-cta, .send-message{
 .form fieldset{
     margin:10px 0;
 }
+.form.large .input-value{
+    vertical-align: middle;
+    font-family: 'OpenSansSemibold';
+    color:#999;
+}
+.form.large, .form.large input[type=text], .form.large input[type=password], .form.large select, .form.large .input-value{
+    font-size:20px;
+}
+
+.form.large input[type=text], .form.large input[type=password]{
+    padding:10px;
+}
+.form.large fieldset{
+    margin:35px 0;
+}
 fieldset.block label{
     display: block;
 }
@@ -878,6 +907,7 @@ fieldset.block label{
     margin-right:20px;
     vertical-align: middle;
 }
+
 .form input[type=text]{
     width: 250px;   
 }
@@ -1504,4 +1534,72 @@ h2#hireStaff{
 a.main-text-action{
     display:inline-block;
     margin:10px 0;
+}
+.footer-links a{
+    margin-right:20px;
+    vertical-align: middle;
+    font-size:12px;
+    color:#555;
+    opacity: .7;
+    -webkit-transition: all .2s ease-in-out;  
+    -moz-transition: all .2s ease-in-out;  
+}
+a.social{
+    background: url(/assets/social.png) no-repeat;
+    width:33px;
+    height:33px;
+    display: inline-block;
+    margin-right:5px;
+   
+}
+.footer-links a:hover{
+    opacity: 1;
+}
+a.social.twitter{
+    background-position: 0 0;
+}
+
+a.social.facebook{
+    background-position: -32px 0;
+}
+.eDs{
+    font-size:14px;
+    font-family: "OpenSansRegular";
+    display: inline-block;
+    vertical-align: middle;
+    margin-left:20px;
+}
+.eDs:hover{
+    text-decoration: underline;
+}
+.seperator{
+    border-bottom:1px solid #e1e1e1;
+}
+.announce{
+    padding:10px;
+    background: #f3f7f9;
+    position: relative;
+}
+.announce .sticker{
+    background: url(/assets/stickytape.png) no-repeat;
+    position: absolute;
+    top:-15px;
+    left:-20px;
+    width:50px;
+    height:40px;
+}
+.announce h3{
+    font-family: "OpenSansSemiBold";
+    font-size:14px;
+    color: #F22651;
+    margin-bottom:10px;
+    padding-bottom:5px;
+    border-bottom: 1px solid #e1e1e1;
+}
+ul.announce-list li{
+  font-family: "OpenSansSemiBold";
+}
+.logo-container{
+    padding:3px;
+    border:1px solid #e1e1e1;
 }
