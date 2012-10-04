@@ -8,6 +8,5 @@ class Employment < ActiveRecord::Base
     def save_employment(employee_id, project_id)
       Employment.create(:employee_id => employee_id, :project_id => project_id)
     end
-    handle_asynchronously :save_employment, :queue => "notifications"
   end
 end
