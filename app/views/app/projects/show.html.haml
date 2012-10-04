@@ -51,4 +51,33 @@
                 %a.btn.action.accept-project Accept Project
                 %div{ :style => "text-align: center;" }
                   %a.text-warning Decline this project
-                
+       
+      .comments
+        %h2 Leave a comment
+
+        .response-wrapper
+          %form
+            %textarea#comment
+            %div
+              %input#submit-comment{ :type => "submit", :class => "btn", :value => "Post comment" }
+
+        .block.group
+
+        - if @project.comments.any?
+          - @project.comments.each do |comment|
+            .comment-item
+              .comment-date= comment.created_at.strftime("%I:%M %P %B %d, %Y")
+              
+              .user-tab-wrapper.small
+                .user-profile-image= image_tag comment.sender.picture(:thumb)
+
+                .user-profile-info
+                  .user-profile-name= comment.sender.name
+                  .user-position= comment.sender.company.name
+
+              .comment-entry
+                %p= comment.message
+        - else
+          .block.group There are no comments posted yet.
+
+        .block.group
