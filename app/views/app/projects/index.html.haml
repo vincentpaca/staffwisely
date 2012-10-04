@@ -4,7 +4,7 @@
   .panel.lt
     .container_12
       
-      - if @pending_projects.nil?
+      - unless @pending_projects.any?
         .empty.large
           %h2 There are no projects listed
           %p
