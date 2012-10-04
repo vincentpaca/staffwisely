@@ -65,21 +65,20 @@
 
         .block.group{ :style => "border-bottom: 1px solid #e1e1e1" }
 
-        - if @project.comments.any?
-          - @project.comments.each do |comment|
-            .comment-item
-              .comment-date= "#{time_ago_in_words comment.created_at} ago"
+        #comments-list
+          - if @project.comments.any?
+            - @project.comments.each do |comment|
+              .comment-item
+                .comment-date= "#{time_ago_in_words comment.created_at} ago"
               
-              .user-tab-wrapper.small
-                .user-profile-image
+                .user-tab-wrapper.small
+                  .user-profile-image
 
-                .user-profile-info
-                  .user-profile-name= comment.user.full_name
-                  .user-position= comment.user.company.name
+                  .user-profile-info
+                    .user-profile-name= comment.user.full_name
+                    .user-position= comment.user.company.name
 
-              .comment-entry
-                %p= comment.message
-        - else
-          .block.group There are no comments posted yet.
-
-        .block.group
+                .comment-entry
+                  %p= comment.message
+          - else
+            .block.group There are no comments posted yet.

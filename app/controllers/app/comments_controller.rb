@@ -4,10 +4,10 @@ class App::CommentsController < AppController
   end
 
   def create
-    comment = Comment.new(params[:comment])
+    @comment = Comment.new(params[:comment])
 
     respond_to do |format|
-      if comment.save
+      if @comment.save
         format.js
       else
         flash[:error] = "Your comment cannot be saved."
