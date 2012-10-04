@@ -21,11 +21,11 @@
             Notifications
             %span.notif-count= current_company.notifications.count if current_company.notifications.count != 0
 
-          - if current_company.notifications.count != 0
+          - if current_company.unread_notifications.count != 0
             %ul.menu-collapse.menu-notifications
             
-              - current_company.notifications.each do |notification|
-                %a.item-notification.group
+              - current_company.unread_notifications.each do |notification|
+                = link_to app_projects_path, :class => "item-notification group" do
                   .item-company-logo
                     = image_tag current_company.logo
 
