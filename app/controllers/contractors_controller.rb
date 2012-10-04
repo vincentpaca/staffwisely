@@ -14,17 +14,10 @@ class ContractorsController < ApplicationController
   end
 
   def send_proposal
-    employee = Company.find(params[:employee])
-    employer = Company.find(params[:employer])
-    staff = Employee.find(params[:staff])
-    
-    title = params[:title]
-    details = params[:details]
-
-    project = Project.new(:employer => employer, :employee => employee, :title => title, :description => details)
+    project = Project.new(:employer_id => params[:employer], :employee => params[:employee], :title => params[:title], :description => params[:details])
 
     if project.save
-      Employment.save_employment(staff.id, project.id)
+      Employment.save_employment(params[:staff], project.id)
       flash[:notice] = "Project successfully created."
       render :js => %(window.location.pathname='/app/projects/#{project.id}')
     else
