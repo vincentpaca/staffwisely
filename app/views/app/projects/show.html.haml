@@ -72,7 +72,7 @@
                 .comment-date= "#{time_ago_in_words comment.created_at} ago"
               
                 .user-tab-wrapper.small
-                  .user-profile-image
+                  .user-profile-image= image_tag('avatar-blank.png')
 
                   .user-profile-info
                     .user-profile-name= comment.user.full_name
