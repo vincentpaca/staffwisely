@@ -5,7 +5,6 @@ ActiveRecord::Base.connection.execute("ALTER TABLE categories AUTO_INCREMENT = 1
 it = Category.create(:name => "Programming & IT")
 design = Category.create(:name => "Design & Multimedia")
 trans = Category.create(:name => "Writing & Translation")
-admin = Category.create(:name => "Admin & Support")
 
 SubCategory.delete_all
 ActiveRecord::Base.connection.execute("ALTER TABLE sub_categories AUTO_INCREMENT = 1")
@@ -27,13 +26,6 @@ SubCategory.create(:category => trans, :name => "Copywriting")
 SubCategory.create(:category => trans, :name => "Technincal Writing")
 SubCategory.create(:category => trans, :name => "Translations")
 SubCategory.create(:category => trans, :name => "Other")
-SubCategory.create(:category => admin, :name => "Virtual Assistant")
-SubCategory.create(:category => admin, :name => "Data Entry")
-SubCategory.create(:category => admin, :name => "Accounting")
-SubCategory.create(:category => admin, :name => "Legal")
-SubCategory.create(:category => admin, :name => "Customer Service")
-SubCategory.create(:category => admin, :name => "Technical Support")
-SubCategory.create(:category => admin, :name => "Other")
 
 Continent.delete_all
 ActiveRecord::Base.connection.execute("ALTER TABLE continents AUTO_INCREMENT = 1")
