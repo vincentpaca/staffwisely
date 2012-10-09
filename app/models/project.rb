@@ -13,7 +13,7 @@ class Project < ActiveRecord::Base
   private
 
   def send_notification
-    Notification.create(:company => self.employee, :message => "sent you a proposal (#{self.title})", :sender => self.employer.users.first)
+    Notification.create(:company => self.employee, :message => "sent you a proposal (#{self.title})", :sender => self.employer.users.first, :project => self)
   end
   handle_asynchronously :send_notification, :queue => "notifications"
 

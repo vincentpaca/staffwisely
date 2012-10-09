@@ -25,7 +25,7 @@
             %ul.menu-collapse.menu-notifications
             
               - current_company.unread_notifications.each do |notification|
-                = link_to app_projects_path, :class => "item-notification group" do
+                = link_to "/app/projects/#{notification.project.id}", :class => "item-notification group" do
                   .item-company-logo
                     = image_tag current_company.logo
 

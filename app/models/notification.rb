@@ -1,8 +1,9 @@
 class Notification < ActiveRecord::Base
-  attr_accessible :company_id, :sender_id, :message, :read, :company, :sender
+  attr_accessible :company_id, :sender_id, :message, :read, :company, :sender, :project, :project_id
 
   belongs_to :sender, :class_name => 'User'
   belongs_to :company
+  belongs_to :project
 
   after_create :notify_all_users
 
