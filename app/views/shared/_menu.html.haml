@@ -34,6 +34,12 @@
                       %span.company-name= current_company.name
                       = notification.message
                     %span.notif-time= "#{time_ago_in_words(notification.created_at)} ago"
+          - else
+            %ul.menu-collapse.menu-notifications
+              .item-notif-contents
+                .item-notif-msg
+                  %span.company-name
+                  You have no notifications at this time.
 
         %li{ :class => active?("/contractors") }
           = link_to "Contractors", contractors_path
