@@ -79,6 +79,6 @@
                     .user-position= comment.user.company.name
 
                 .comment-entry
-                  %p= comment.message
+                  %p= simple_format comment.message
           - else
             .block.group There are no comments posted yet.
