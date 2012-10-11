@@ -23,6 +23,7 @@
 
           - if current_company.unread_notifications.count != 0
             %ul.menu-collapse.menu-notifications
+              .menu-tooltip-tail
             
               - current_company.unread_notifications.each do |notification|
                 = link_to "/app/projects/#{notification.project.id}", :class => "item-notification group" do
