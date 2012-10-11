@@ -1,0 +1,40 @@
+%ul.comment-tab-selector
+  %li.active
+    %a
+      %i.icon-comments
+      Leave a comment
+    .tooltip-tail
+
+  %li
+    %a
+      %i.icon-tasks
+      Add Activity Log
+      .tooltip-tail
+
+.comments
+  .response-wrapper
+    = form_for(@comment, :remote => true, :url => "/app/comments") do |f|
+      = f.text_area :message, { :rows => "5" }
+      = f.hidden_field :project_id, :value => @project.id
+      = f.hidden_field :user_id, :value => current_user.id
+      %div
+        = f.submit "Post comment", :class => "btn"
+
+
+  #comments-list
+    - if @project.comments.any?
+      - @project.comments.each do |comment|
+        .comment-item
+          .comment-date= "#{time_ago_in_words comment.created_at} ago"
+        
+          .user-tab-wrapper.small
+            .user-profile-image= image_tag('avatar-blank.png')
+
+            .user-profile-info
+              .user-profile-name= comment.user.full_name
+              .user-position= comment.user.company.name
+
+          .comment-entry
+            %p= simple_format comment.message
+    - else
+      .block.group There are no comments posted yet.

@@ -1,0 +1,25 @@
+%h1= @project.title
+          
+.contractor-head
+
+  .user-tab-wrapper
+    .user-profile-image= image_tag @project.employer.logo(:thumb)
+    .user-profile-info
+      .user-profile-name= @project.employer.name
+      .user-position= @project.employer.users.first.full_name
+      
+  .block
+    %h5.block
+      #{@project.employees.count} staff working on this project
+    
+    - if @project.employees.any?
+      - @project.employees.each do |employee|
+        .user-tab-wrapper.small.bordered
+          .user-profile-image= image_tag employee.picture(:thumb)
+          .user-profile-info
+            .user-profile-name= employee.position
+            .user-position= employee.full_name
+            
+.project-description
+  %p= simple_format @project.description
+

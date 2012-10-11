@@ -10,6 +10,14 @@ class Project < ActiveRecord::Base
 
   after_create :send_notification
 
+  def pending?
+    true if self.project_status == 'pending'
+  end
+
+  def on_going?
+    true if self.project_status == 'ongoing'
+  end
+
   private
 
   def send_notification
