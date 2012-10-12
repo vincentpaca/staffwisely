@@ -9,9 +9,13 @@ class Notification < ActiveRecord::Base
 
   private
 
-  def notify_all_users(email)
-    emails = self.company.users.collect(&:email).join(",")
-    NotificationMailer.delay.notify(emails)
+  def notify_all_users
+    employers = self.project.employer.users.collect(&:email).join(",")
+    employees = self.project.employee.users.collect(&:email).join(",")
+    admins = Staffwisely::Application.ADMIN_EMAILS
+
+    NotificationMailer.delay.notify_employer(employers, self.project)
+    NotificationMailer.delay.notify_employee(employees, self.project)
+    NotificationMailer.delay.notify_admin(admins, self.project)
   end
-  handle_asynchronously :notify_all_users, :queue => "notifications"
 end

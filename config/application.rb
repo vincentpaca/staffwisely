@@ -64,5 +64,8 @@ module Staffwisely
     
     # Fonts
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
+
+    # Admin emails
+    ADMIN_EMAILS = ['harry@staffwisely.com']
   end
 end

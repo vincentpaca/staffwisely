@@ -1,0 +1,8 @@
+%p
+  #{@project.employer.name} wants to hire #{@project.employees.full_name} for #{@project.title}.
+
+%p
+  A Staffwisely representative will be in touch with you soon to discuss the project details.
+
+%p
+  %a{ :href => "http://staffwisely.com/app/projects/#{@project.id}" } Go to the project page
