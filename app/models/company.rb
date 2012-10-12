@@ -14,4 +14,12 @@ class Company < ActiveRecord::Base
   def unread_notifications
     self.notifications.where(:read => false)
   end
+
+  def employer?(project)
+    self.eql?(project.employer) ? true : false
+  end
+
+  def employee?(project)
+    self.eql?(project.employee) ? true : false
+  end
 end
