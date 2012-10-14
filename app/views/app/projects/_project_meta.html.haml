@@ -17,7 +17,8 @@
         %strong.inactive Pending
   
   %div
-    - if current_company.employee? @project
-      %a.btn.action.accept-project Accept Project
-      %div{ :style => "text-align: center;" }
-        %a.text-warning Decline this project
+    /
+      - if current_company.employee? @project
+        %a.btn.action.accept-project Accept Project
+        %div{ :style => "text-align: center;" }
+          %a.text-warning Decline this project
