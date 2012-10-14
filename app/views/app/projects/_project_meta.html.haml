@@ -11,7 +11,10 @@
       
     %li
       Status:
-      %strong.inactive Pending
+      - if @project.on_going?
+        %strong.green On Going
+      - else
+        %strong.inactive Pending
   
   %div
     - if current_company.employee? @project
