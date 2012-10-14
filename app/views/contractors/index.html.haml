@@ -35,10 +35,8 @@
                 = image_tag employee.picture.url(:thumb)
 
               .search-profile
-                %span.c_name= employee.full_name
+                %span.c_name= employee.first_name
                 
-                = link_to employee.company.name, nil, { :class => "company", :title => "View more staff from #{employee.company}" }
-
                 - link = current_user ? "#" : "/users/sign_in"
                 = link_to "Contact Employer", link, { :class => "action-contact  #{current_user ? 'contact-logged' : 'contact-out'}",
                   "employer-id" => current_user ? current_user.company.id : nil, 
