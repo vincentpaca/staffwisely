@@ -27,7 +27,7 @@
                   
                   .notify-action-wrapper
                     = link_to "View Request", "/app/projects/#{project.id}", :class => "btn action small notify-action"
-                    = link_to "Decline", null, :class => "btn warning small notify-action"
+                    = link_to "Decline", nil, :class => "btn warning small notify-action"
 
         .notify-view-wrapper.ongoing
           - if @on_going_projects.any?
