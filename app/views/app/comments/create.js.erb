@@ -1,5 +1,11 @@
 $(document).ready(function(){
-  $('#comments-list').prepend("<%= j(render('comment', :comment => @comment)) %>").hide().slideDown();
-  $('#comment_message').val("");
+  <% if @comment.event %>
+    $('#comments-list').prepend("<%= j(render('activity', :comment => @comment)) %>").hide().slideDown();
+    $(".activity_text").val("");
+  <% else %>
+    $('#comments-list').prepend("<%= j(render('comment', :comment => @comment)) %>").hide().slideDown();
+    $(".comment_text").val("");
+  <% end %>
+  
   $('#comments-list').focus();
 });

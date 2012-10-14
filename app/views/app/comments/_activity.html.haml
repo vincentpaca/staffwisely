@@ -1,0 +1,4 @@
+.activity-log-item
+  .comment-date #{time_ago_in_words comment.created_at} ago
+  %strong= comment.user.full_name
+  logged #{comment.hours} hour(s) for this project - #{comment.message} 

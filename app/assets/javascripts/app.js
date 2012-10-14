@@ -21,3 +21,23 @@ $(document).on('click', '.dropdown-options > li', function(e){
     }
   });
 });
+
+$(document).on('click', "#leaveCommentLink", function(e){
+  e.preventDefault();
+
+  $(this).parent().addClass("active");
+  $("#addActivityLink").parent().removeClass("active");
+
+  $("#addActivity").hide();
+  $("#leaveComment").show();
+});
+
+$(document).on('click', "#addActivityLink", function(e){
+  e.preventDefault();
+
+  $(this).parent().addClass('active');
+  $("#leaveCommentLink").parent().removeClass("active");
+
+  $("#addActivity").show();
+  $("#leaveComment").hide();
+});
