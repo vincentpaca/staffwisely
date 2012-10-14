@@ -1,7 +1,7 @@
 class App::ProjectsController < AppController
   def index
-    @employee_projects = current_company.employee_projects
-    @employer_projects = current_company.employer_projects
+    @pending_projects = current_company.pending_projects
+    @on_going_projects = current_company.on_going_projects
   end
 
   def show
