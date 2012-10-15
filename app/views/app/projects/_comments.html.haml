@@ -1,40 +1,76 @@
 %ul.comment-tab-selector
   %li.active
-    %a
-      %i.icon-comments
-      Leave a comment
-    .tooltip-tail
-
-  %li
-    %a
+    %a#addActivityLink
       %i.icon-tasks
       Add Activity Log
       .tooltip-tail
 
+  %li
+    %a#leaveCommentLink
+      %i.icon-comments
+      Leave a comment
+    .tooltip-tail
+
 .comments
   .response-wrapper
-    = form_for(@comment, :remote => true, :url => "/app/comments") do |f|
-      = f.text_area :message, { :rows => "5" }
-      = f.hidden_field :project_id, :value => @project.id
-      = f.hidden_field :user_id, :value => current_user.id
-      %div
-        = f.submit "Post comment", :class => "btn"
+    #addActivity.group
+      = form_for(@comment, :remote => true, :url => "/app/comments") do |f|
+        .fL
+          .calendar-date-wrapper
+            .calendar-box.s
+              .calendar-date
+                .month= I18n.t("date.abbr_month_names")[Date.today.month].upcase
+                .day= Date.today.day
+            .day-of-week= I18n.t("date.abbr_day_names")[Date.today.wday].upcase
+        
+        .fL.Ls
+          %h3 Add a short update of a finished task or activity
+          = f.text_field :message, :style => "width: 400px;", :class => "activity_text"
+          = f.hidden_field :project_id, :value => @project.id
+          = f.hidden_field :user_id, :value => current_user.id
+          = f.hidden_field :event, :value => true
+
+          .inline.dD#addHoursSection
+            .tooltip.dark.small#tipAddHours{ :style => "top: -40px;" }
+              .tooltip-tail
+                Add the estimated number of hours for the specific task
+
+            = f.select :hours, %w[1 2 3 4 5 6 7 8]
+            hour(s)
+          
+          = f.submit "Add activity log", :class => "btn"
+
+    #leaveComment{ :style => "display: none;" }
+      = form_for(@comment, :remote => true, :url => "/app/comments") do |f|
+        = f.text_area :message, { :rows => "5", :class => "comment_text" }
+        = f.hidden_field :project_id, :value => @project.id
+        = f.hidden_field :user_id, :value => current_user.id
+        %div
+          = f.submit "Post comment", :class => "btn"
 
 
   #comments-list
     - if @project.comments.any?
       - @project.comments.each do |comment|
-        .comment-item
-          .comment-date= "#{time_ago_in_words comment.created_at} ago"
-        
-          .user-tab-wrapper.small
-            .user-profile-image= image_tag('avatar-blank.png')
+        - unless comment.event
+          .comment-item
+            .comment-date #{time_ago_in_words comment.created_at} ago
+          
+            .user-tab-wrapper.small
+              .user-profile-image= image_tag('avatar-blank.png')
 
-            .user-profile-info
-              .user-profile-name= comment.user.full_name
-              .user-position= comment.user.company.name
+              .user-profile-info
+                .user-profile-name= comment.user.full_name
+                .user-position= comment.user.company.name
 
-          .comment-entry
-            %p= simple_format comment.message
+            .comment-entry
+              %p= simple_format comment.message
+        - else
+          .activity-log-item
+            .comment-date #{time_ago_in_words comment.created_at} ago
+
+            %strong= comment.user.full_name
+            logged #{comment.hours} hour(s) for this project - #{comment.message} 
+
     - else
       .block.group There are no comments posted yet.

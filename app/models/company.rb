@@ -22,4 +22,12 @@ class Company < ActiveRecord::Base
   def employee?(project)
     self.eql?(project.employee) ? true : false
   end
+
+  def on_going_projects
+    Project.where("(employer_id = ? or employee_id = ?) and project_status = 'ongoing'", self.id, self.id)
+  end
+
+  def pending_projects
+    Project.where("(employer_id = ? or employee_id = ?) and project_status = 'pending'", self.id, self.id)
+  end
 end

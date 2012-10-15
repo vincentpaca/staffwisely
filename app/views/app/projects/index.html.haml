@@ -4,7 +4,7 @@
   .panel.lt
     .container_12
       
-      - unless @employee_projects.any? || @employer_projects.any?
+      - unless @pending_projects.any? || @on_going_projects.any?
         .empty.large
           %h2 There are no projects listed
           %p
@@ -12,22 +12,36 @@
             = link_to "Start looking for contractors", contractors_path
       - else
         .notify-view-wrapper
-          - if @employee_projects.any?
-            %h3 Projects started by others
+          - if @pending_projects.any?
+            %h3 Pending projects
           
-            - @employee_projects.each do |project|
+            - @pending_projects.each do |project|
+              .notify-item.incoming
+                - if current_company.employer?(project)
+                  You requested an employee from #{project.employee.name} (#{project.title})
+                  
+                  .notify-action-wrapper
+                    = link_to "View Request", "/app/projects/#{project.id}", :class => "btn action small notify-action"
+                - else
+                  = project.title
+                  
+                  .notify-action-wrapper
+                    = link_to "View Request", "/app/projects/#{project.id}", :class => "btn action small notify-action"
+                    = link_to "Decline", nil, :class => "btn warning small notify-action"
+
+        .notify-view-wrapper.ongoing
+          - if @on_going_projects.any?
+            %h3 Ongoing Projects
+
+            - @on_going_projects.each do |project|
               .notify-item
                 = project.title
-                = link_to "View Project", "/app/projects/#{project.id}", :class => "btn action small notify-action"
+                - if current_company.employer?(project)
+                  .pT You
+                - else
+                  .pT.dF1= project.employer.name
 
-            %br/
-
-          - if @employer_projects.any?
-            %h3 Projects started by me
-
-            - @employer_projects.each do |project|
-              .notify-item
-                = project.title
-                = link_to "View Project", "/app/projects/#{project.id}", :class => "btn action small notify-action"
+                .notify-action-wrapper
+                  = link_to "View Project", "/app/projects/#{project.id}", :class => "btn action small notify-action"
 
 

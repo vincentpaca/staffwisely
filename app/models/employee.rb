@@ -16,4 +16,12 @@ class Employee < ActiveRecord::Base
   def self.available
     Employee.where(:availability => "Available")
   end
+
+  def first_name
+    begin
+      self.full_name.split(" ").first
+    rescue
+      self.full_name
+    end
+  end
 end
