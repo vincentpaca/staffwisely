@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :company do
-    name "MyString"
-    description "MyString"
-    address "MyString"
+    name "Staffwisely"
+    description "Staff sharing platform for ITOs"
+    address "Cebu City, Philippines"
   end
 end

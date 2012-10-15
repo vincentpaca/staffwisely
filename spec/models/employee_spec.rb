@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Employee do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:company) }
+  it { should belong_to(:country) }
+  it { should have_many(:employments) }
 end

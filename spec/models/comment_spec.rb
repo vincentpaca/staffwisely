@@ -1,5 +1,6 @@
 require 'spec_helper'
 
-describe Comments do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Comment do
+  it { should belong_to(:user) }
+  it { should belong_to(:project) }
 end
