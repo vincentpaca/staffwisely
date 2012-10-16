@@ -4,10 +4,7 @@
   .container_12
   
     .sidebar
-      .skill-menu-cat.search-cat
-        %ul
-          %li
-            %a.active Contractors
+      = render 'sidebar'
 
     .search-results-wrapper
       .search-results-inner
@@ -16,7 +13,7 @@
         .search-wrapper
           %ul
             %li
-              %input.search-input-skill{ :id => "search-query", :type => "text", :placeholder => "Ruby Developer", :value => "#{ params[:q] }" }
+              %input.main-search{ :id => "search-query", :type => "text", :placeholder => "e.g. Ruby Developer", :value => "#{ params[:q] }" }
 
             %li
               %input{ :id => "search-submit", :type => "submit", :value => "Search" }
@@ -29,45 +26,8 @@
             = will_paginate @employees, :class => "pagination group"
 
         .search-results
-          - @employees.each do |employee|
-            .search-item.group
-              %a.thumbnail
-                = image_tag employee.picture.url(:thumb)
-
-              .search-profile
-                %span.c_name= employee.first_name
-                
-                - link = current_user ? "#" : "/users/sign_in"
-                = link_to "Contact Employer", link, { :class => "action-contact  #{current_user ? 'contact-logged' : 'contact-out'}",
-                  "employer-id" => current_user ? current_user.company.id : nil, 
-                  "employee-id" => employee.company.id, 
-                  "staff-id" => employee.id }
-                
-                %h2= employee.position
-
-                .search-c-details
-                  %ul
-                    %li= "$ #{employee.rate}/hr"
-                    %li
-                      = image_tag("map-pin.png")
-                      = employee.country.name
-
-                  .search-more-details
-                    %ul
-                      %li
-                        %span Level:
-                        = employee.skill_level
-                      %li
-                        %span Tenure:
-                        = employee.tenure
-                      %li
-                        %span Years of Experience:
-                        = employee.experience
-
-                    .c-tags
-                      - employee.skills.each do |skill|
-                        %a= skill
-     
+          = render 'search_results'
+               
       .search-box-tools
         .inline.search-count
           .reminder-post

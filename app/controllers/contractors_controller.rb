@@ -11,6 +11,7 @@ class ContractorsController < ApplicationController
     end
 
     @employees = employees.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+    @categories = Category.includes(:sub_categories).all
   end
 
   def send_proposal
