@@ -1,5 +1,31 @@
 ActiveAdmin::Dashboards.build do
 
+  section "Recent Projects" do
+    table do
+      thead do
+        tr do
+          th "Project"
+          th "Employer"
+          th "Employee"
+          th "Status"
+          th "Days Since Creation"
+        end
+      end
+
+      tbody do
+        Project.recent(5).collect do |project|
+          tr do
+            td link_to(project.title, admin_project_path(project))
+            td link_to(project.employer.name, admin_company_path(project.employer))
+            td link_to(project.employee.name, admin_company_path(project.employee))
+            td project.project_status
+            td "#{time_ago_in_words(project.created_at)} ago"
+          end
+        end
+      end
+    end
+  end
+
   # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.

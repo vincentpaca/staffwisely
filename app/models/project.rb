@@ -18,6 +18,10 @@ class Project < ActiveRecord::Base
     true if self.project_status == 'ongoing'
   end
 
+  def self.recent(limit)
+    self.order("created_at DESC").limit(limit)
+  end
+
   private
 
   def send_notification
