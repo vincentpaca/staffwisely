@@ -2,7 +2,7 @@
   .search-item.group
     .search-profile
       - link = current_user ? "#" : "/users/sign_in"
-      = link_to "Contact Employer", link, { :class => "action-contact  #{current_user ? 'contact-logged' : 'contact-out'}",
+      = link_to "Request Contractor", link, { :class => "action-contact  #{current_user ? 'contact-logged' : 'contact-out'}",
         "employer-id" => current_user ? current_user.company.id : nil, 
         "employee-id" => employee.company.id, 
         "staff-id" => employee.id }
