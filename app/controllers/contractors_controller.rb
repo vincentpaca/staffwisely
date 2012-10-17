@@ -1,16 +1,19 @@
 class ContractorsController < ApplicationController
   def index
-    employees = Employee.includes(:company, :country, :skills).available
+    unless params[:category].blank? && params[:q].blank?
+      employees = Employee.includes(:company, :country, :skills).available
 
-    if params[:category]
-      employees = employees.where("category = ?", params[:category])
+      if params[:category]
+        employees = employees.where("category = ?", params[:category])
+      end
+
+      if params[:q]
+        employees = employees.where("position like ?", "%#{params[:q]}%")
+      end
+
+      @employees = employees.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     end
 
-    if params[:q]
-      employees = employees.where("position like ?", "%#{params[:q]}%")
-    end
-
-    @employees = employees.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     @categories = Category.includes(:sub_categories).all
   end
 

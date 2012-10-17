@@ -18,25 +18,32 @@
             %li
               %input{ :id => "search-submit", :type => "submit", :value => "Search" }
 
-        .search-box-tools.small
-          .inline.search-count
-            = page_entries_info @employees
-          .inline.search-sort
-          .inline.search-pagination
-            = will_paginate @employees, :class => "pagination group"
+        - unless @employees.nil? || @employees.empty?
+          .search-box-tools.small
+            .inline.search-count
+              = page_entries_info @employees
+            .inline.search-sort
+            .inline.search-pagination
+              = will_paginate @employees, :class => "pagination group"
 
         .search-results
-          = render 'search_results'
-               
-      .search-box-tools
-        .inline.search-count
-          .reminder-post
-            - if current_user
-              Have benched employees?
-              = link_to "Post your staff", "/app/employees/new"
-            - else
-              Need contractors?
-              = link_to "Sign up!", "/users/sign_up"
+          - if @employees.nil?
+            = render 'search_staff'
+          - elsif @employees.empty?
+            = render 'search_empty'
+          - else
+            = render 'search_results'
+      
+      - unless @employees.nil? || @employees.empty?
+        .search-box-tools
+          .inline.search-count
+            .reminder-post
+              - if current_user
+                Have benched employees?
+                = link_to "Post your staff", "/app/employees/new"
+              - else
+                Need contractors?
+                = link_to "Sign up!", "/users/sign_up"
 
-        .inline.search-pagination
-          = will_paginate @employees, :class => "pagination group small"
+          .inline.search-pagination
+            = will_paginate @employees, :class => "pagination group small"
