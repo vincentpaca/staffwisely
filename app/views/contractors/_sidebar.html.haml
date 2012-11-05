@@ -1,0 +1,7 @@
+- @categories.each do |category|
+  .search-filter
+    %h2= category.name
+
+    %ul.filter-list
+      - category.sub_categories.each do |sub|
+        %li= sub.name

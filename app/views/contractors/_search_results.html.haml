@@ -1,0 +1,38 @@
+- @employees.each do |employee|
+  .search-item.group
+    .search-profile
+      - link = current_user ? "#" : "/users/sign_in"
+      = link_to "Request Contractor", link, { :class => "action-contact  #{current_user ? 'contact-logged' : 'contact-out'}",
+        "employer-id" => current_user ? current_user.company.id : nil, 
+        "employee-id" => employee.company.id, 
+        "staff-id" => employee.id }
+
+      %h2= employee.position
+
+      %ul.list-inline
+        %li
+          %i.icon-map-marker
+          = employee.country.name
+
+      %ul.list-inline.small
+        - unless employee.project_duration.blank?
+          %li
+            Availability:
+            %strong.green #{employee.project_duration} months
+
+        %li
+          Experience:
+          %strong= employee.experience
+
+        %li
+          Level:
+          %strong= employee.skill_level
+
+        %li
+          Rate:
+          %strong $#{employee.rate}/hr
+
+      .c-tags
+        - employee.skills.each do |skill|
+          %a= skill
+
